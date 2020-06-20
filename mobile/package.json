@@ -17,10 +17,15 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-screen-orientation": {}
     },
     "platforms": [
       "android"
     ]
+  },
+  "dependencies": {
+    "cordova-plugin-screen-orientation": "^3.0.2",
+    "es6-promise-plugin": "^4.2.2"
   }
 }
