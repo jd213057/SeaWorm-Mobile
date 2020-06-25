@@ -23,7 +23,7 @@ span, label {
 
 .game-panel {
   text-align: center;
-  width: 1200px;
+  width: 1050px;
   height: 450px;
   background-color:black;
   border-radius: 30px;
@@ -61,7 +61,7 @@ display: inline-flex;
 }
 
 .button-next {
-  padding-left: 65px !important;
+  padding-left: 50px !important;
 }
 
 .panel-text {
@@ -161,7 +161,7 @@ video {
 
 .last-panel {
 width: 390px !important;
-margin-left: 415px;
+margin-left: 345px;
 border: 3px solid plum !important;
 }
 

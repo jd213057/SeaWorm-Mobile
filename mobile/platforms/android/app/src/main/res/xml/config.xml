@@ -7,7 +7,7 @@
     <feature name="CDVOrientation">
         <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation" />
     </feature>
-    <name>SeaWorm</name>
+    <name>Sea Worm</name>
     <description>
         Underwater version of the famous Snake game.
     </description>

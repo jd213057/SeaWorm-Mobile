@@ -600,8 +600,8 @@ transform: scaleX(-1) !important;
 
 
 .yellow-fish {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: yellowFishFloatToRight;
@@ -616,8 +616,9 @@ transition: 0.5s;
 
 .salmon-fish {
 z-index: 10;
-width: 14px;
-height: 14px;
+margin-top: -10%;
+width: 16px;
+height: 16px;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: floatToRight;
@@ -633,8 +634,8 @@ transition: 3s;
 .blue-fish {
 opacity: 0%;
 z-index: 10;
-width: 14px;
-height: 14px;
+width: 16px;
+height: 16px;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: floatToRight;
@@ -649,8 +650,8 @@ transition: 3s;
 
 .normal-fish {
 z-index: 10;
-width: 14px;
-height: 14px;
+width: 16px;
+height: 16px;
 opacity: 0%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -663,8 +664,8 @@ animation-delay: 0s;
 z-index: 10;
 position: absolute;
 bottom: 26%;
-width: 14px;
-height: 14px;
+width: 16px;
+height: 16px;
 opacity: 0%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -680,8 +681,8 @@ transform: scale(0.25);
 
 .crab {
 z-index: 11;
-width: 14px;
-height: 14px;
+width: 16px;
+height: 16px;
 opacity: 0%;
 margin-bottom: 1%;
 margin-top: 6%;
@@ -695,8 +696,8 @@ animation-delay: 0s;
 .starfish {
 z-index: 1;
 position: absolute;
-width: 14px;
-height: 14px;
+width: 16px;
+height: 16px;
 margin-left: 75%;
 bottom: 0%;
 transition: 10s;
@@ -710,7 +711,7 @@ transition: 10s;
 position: absolute;
 width: 14px;
 height: 14px;
-bottom: 32%;
+bottom: 32.3%;
 margin-left: 4%;
 }
 

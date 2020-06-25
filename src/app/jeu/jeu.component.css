@@ -13,13 +13,13 @@ span, label {
 
 .game-panel {
   text-align: center;
-  width: 180%;
+  width: 105%;
   background-color: dodgerblue;
-  border-radius: 100%;
+  border-radius: 10%;
   border-color: grey;
   border: solid;
-  margin-left: 130%;
-  border-width: 7px;
+  margin-left: 7%;
+  border-width: 5px;
   cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
   opacity: 75%;
 }
@@ -32,7 +32,7 @@ span, label {
 }
 
 .score-title {
-  margin-bottom: 2%;
+  margin-top: 4%;
   font-size: 3em;
   font-family: "Pirate Menu";
   color: yellow;
@@ -44,16 +44,18 @@ span, label {
 
 .grid {
   opacity: 100% !important;
+  width: 240.2px;
+  height: 227.2px;
 }
 
-button {
+.button-exit {
   z-index: 50;;
   cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
   display: inline-flex;
   color: black;
   width: 250px;
   height: 77px;
-  border-radius: 0% 0% 140px 140px;
+  border-radius: 33% 33% 45px 45px;
   border-color: black;
   font-size: 24px;
   font-family: "Pirate Game";
@@ -64,10 +66,44 @@ button {
   background-color: rgb(244, 226, 150);
 }
 
+.controls {
+  z-index: 50;;
+  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  display: inline-flex;
+  color: black;
+  width: 120px;
+  height: 77px;
+  border-color: black;
+  font-size: 24px;
+  font-family: "Pirate Game";
+  padding-top: 10px;
+  padding-left: 27px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  margin-right: 11%;
+  background-color: rgb(244, 226, 150);
+}
+
+.left {
+  border-radius: 33% 33% 33% 45px;
+}
+
+.right {
+  border-radius: 33% 33% 45px 33%;
+}
+
+.up {
+border-radius: 45px 45px 33% 33%;
+}
+
+.down {
+border-radius: 33% 33% 45px 45px;
+}
+
 button:hover {
 cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
-background-color: red !important;
-color: rgb(244, 226, 150) !important;
+background-color: darkblue !important;
+color: yellowgreen !important;
 }
 
 .exit-button-title {
@@ -84,9 +120,7 @@ color: rgb(244, 226, 150) !important;
   width: 20px;
   height: 20px;
   background-color: dodgerblue;
-  border-color: darkblue;
-  border-width: 0.5px;
-  border: solid;
+  border: 2px solid black;
 }
 
 .countdown {
@@ -96,35 +130,71 @@ color: rgb(244, 226, 150) !important;
   font-family: "Pirate Game";
   font-size: 110px;
   padding-top: 150px;
-  margin-left: 275%;
+  margin-left: 230%;
   text-align: center;
 }
 
 .end-panel {
-position: absolute !important;
-opacity: 87.5% !important;
-width: 700px !important;
-height: 500px !important;
-left: 250px;
-top: 30px;
-margin-left: -35%;
-margin-top: 13%;
+  position: absolute !important;
+  opacity: 87.5% !important;
+  width: 670px !important;
+  height: 415px !important;
+  left: 195px;
+  margin-left: -35%;
+  margin-top: 13%;
+  background-color: dodgerblue;
+  border: 3px solid black;
+  border-radius: 30px;
 }
 
-img {
+.gif-endgame {
   border-color: black;
   border: solid;
   border-width: 7px;
   border-radius: 20px;
-  width: 60%;
-  height: 50%;
+  width: 77%;
+  height: 66%;
+  margin-top: 5%;
+  margin-left: 11%;
+}
+
+.img-controls {
+  border-color: black;
+  border: solid;
+  border-width: 7px;
+  border-radius: 20px;
+  margin-top: -7%;
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .exit-msg {
 color: red;
 font-size: 3em;
 font-family: "Pirate Game";
-margin-top: 300px;
+margin-top: 2%;
+margin-left: 35%;
+}
+
+.panel-structure {
+  display: grid;
+}
+
+.inside-panel {
+ display: inline-flex;
+}
+
+.buttons-left {
+display: inline-flex;
+width: 300px;
+margin-left: 50px;
+padding-top: 50px;
+}
+
+.buttons-right {
+  display: inline-grid;
+  width: 200px;
+  padding-left: 100px;
 }
 
 

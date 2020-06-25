@@ -44,7 +44,7 @@ ul {
 
 .game-panel {
   text-align: center;
-  width: 1200px;
+  width: 1050px;
   height: 450px;
   background-color:black;
   border-radius: 30px;
@@ -69,20 +69,19 @@ ul {
 .panel-text {
   display: inline-block;
   text-align: left;
-  width: 1150px;
+  width: 980px;
   height: 280px;
   padding: 22px 10px 0px 10px;
   color: red;
   font-family: "Pirate Game";
   font-size: 30px;
   background-color: black;
-  border-radius: 30px 0px 0px 30px;
+  border-radius: 30px;
   border-color: yellowgreen;
   border-width: 4px;
   border: solid;
   overflow-y: scroll;
-  scrollbar-color: rebeccapurple green !important;
-  scrollbar-width: thin;
+  overflow-x: hidden;
 }
 
 .button-clearScore {
@@ -95,7 +94,7 @@ ul {
    background-color: yellowgreen;
    font-size: 1.25em;
    font-family: "Pirate Game";
-   padding-left: 3%;
+   padding-left: 2%;
    margin-top: 1.25%;
    margin-right: 1.5%;
    cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
@@ -111,7 +110,7 @@ ul {
      background-color: yellowgreen;
      font-size: 1.25em;
      font-family: "Pirate Game";
-     padding-left: 4%;
+     padding-left: 3%;
      margin-top: 1.25%;
      margin-right: 1.5%;
      cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
@@ -139,8 +138,8 @@ ul {
     background-color: red;
     border: 3px solid plum !important;
     border-radius: 30px;
-    left: 350px;
-    top: 185px;
+    left: 265px;
+    top: 135px;
 }
 
 .noclear-dialog {
@@ -150,8 +149,8 @@ ul {
     background-color: red;
     border: 3px solid plum !important;
     border-radius: 30px;
-    left: 350px;
-    top: 185px;
+    left: 265px;
+    top: 135px;
 }
 
 .clear-dialog-text {
@@ -215,31 +214,31 @@ ul {
   display: inline-flex;
   border-bottom: 3px solid yellowgreen;
   padding-bottom: 20px;
-  width: 1130px;
+  width: 975px;
 }
 
 .id {
-  margin-left: 80px;
+  margin-left: 40px;
 }
 
 .score {
-  margin-left: 45px;
+  margin-left: 30px;
 }
 
 .level {
-  margin-left: 50px;
+  margin-left: 35px;
 }
 
 .code1 {
-  margin-left: 95px;
+  margin-left: 80px;
 }
 
 .code2 {
-  margin-left: 50px;
+  margin-left: 35px;
 }
 
 .date {
-  margin-left: 180px;
+  margin-left: 165px;
 }
 
 .li-record {
@@ -247,45 +246,44 @@ ul {
 }
 
 .li-id {
-  margin-left: 50px;
+  margin-left: 10px;
   justify-content: center;
   width: 50px;
   height: 20px;
 }
 
 .li-score {
-  margin-left: 50px;
+  margin-left: 35px;
   justify-content: center;
   width: 50px;
   height: 20px;
 }
 
 .li-level {
-  margin-left: 50px;
+  margin-left: 35px;
   justify-content: center;
   width: 50px;
   height: 20px;
 }
 
 .li-code1 {
-  margin-left: 125px;
+  margin-left: 110px;
   justify-content: center;
   width: 100px;
   height: 20px;
 }
 
 .li-code2 {
-  margin-left: 50px;
+  margin-left: 35px;
   justify-content: center;
   width: 100px;
   height: 20px;
 }
 
 .li-date {
-  margin-left: 85px;
-  margin-right: 12.5px;
+  margin-left: 70px;
   justify-content: center;
-  width: 280px;
+  width: 275px;
   height: 20px;
 }
 

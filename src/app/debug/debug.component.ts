@@ -79,6 +79,12 @@ localStorage.setItem('YOUAREDEAD', 'true');
       return;
     }
 
+    playClickSound(): void {
+      if (this.gameService.getAudio()) {
+        this.clickSound.play();
+      }
+    }
+
     exitDebug(): void {
       this.clickSound.volume = 0.7;
       if (this.gameService.getAudio()){

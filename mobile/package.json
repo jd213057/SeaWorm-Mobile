@@ -18,7 +18,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-vibration": {}
     },
     "platforms": [
       "android"
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "cordova-plugin-screen-orientation": "^3.0.2",
+    "cordova-plugin-vibration": "^3.1.1",
     "es6-promise-plugin": "^4.2.2"
   }
 }

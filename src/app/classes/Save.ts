@@ -28,9 +28,9 @@ export class Save {
     if (day.length == 1) {
       day = '0' + day;
     }
-    let hour = (saveDay.getUTCHours() + 1).toString();
+    let hour = (saveDay.getUTCHours() + 2).toString();
     if (hour.length == 1) {
-      hour = '0' + hour;
+      hour = '0' + hour;""
     }
     let min = saveDay.getUTCMinutes().toString();
     if (min.length == 1) {

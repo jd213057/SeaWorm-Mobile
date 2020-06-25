@@ -29,7 +29,7 @@ export class JeuComponent implements OnInit {
   foodTimer;
   wormSpeed = this.gameService.getLevel();
   eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
-  clickExitSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
 
 
@@ -77,7 +77,6 @@ export class JeuComponent implements OnInit {
   }
 
   getCount(): string {
-    this.compteur = this.compteur;
     return this.compteur;
   }
 
@@ -91,6 +90,34 @@ export class JeuComponent implements OnInit {
 
   getCaseClass(): string {
     return '';
+  }
+
+  touchLeft(): void {
+    if (this.seaWorm.getDirection() != Direction.droite) {
+      this.seaWorm.setDirection(Direction.gauche);
+      this.controlPressed = true;
+    }
+  }
+
+  touchRight(): void {
+    if (this.seaWorm.getDirection() != Direction.gauche) {
+      this.seaWorm.setDirection(Direction.droite);
+      this.controlPressed = true;
+    }
+  }
+
+  touchUp(): void {
+    if (this.seaWorm.getDirection() != Direction.bas) {
+      this.seaWorm.setDirection(Direction.haut);
+      this.controlPressed = true;
+    }
+  }
+
+  touchDown(): void {
+    if (this.seaWorm.getDirection() != Direction.haut) {
+      this.seaWorm.setDirection(Direction.bas);
+      this.controlPressed = true;
+    }
   }
 
   setControls(): void {
@@ -209,7 +236,7 @@ for (let x = 0; x <= 9; x++) {
   }
 
   displayGame(): void {
-      this.displayRate = setInterval((run) => {
+    this.displayRate = setInterval((run) => {
           this.runGameCycle();
      }, this.wormSpeed);
   }
@@ -220,6 +247,7 @@ for (let x = 0; x <= 9; x++) {
    this.moveWorm(this.seaWorm);
    if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
   this.playEatSound();
+  this.vibrateDevice();
   this.getFoodEffect(this.food.getType());
   this.placeAgainFood();
   this.setFoodType();
@@ -241,6 +269,10 @@ for (let x = 0; x <= 9; x++) {
     if (this.gameService.getAudio()) {
       this.eatSound.play();
     }
+  }
+
+  vibrateDevice(): void {
+    navigator.vibrate(500);
   }
 
   getFoodEffect(foodtype: TYPE): void {
@@ -512,9 +544,9 @@ case Direction.bas:
   }
     for (const wormPixel of this.seaWorm.getCases()) {
       pixelToShow = document.getElementById(wormPixel.getId());
-      if (!this.gameService.getCode2()) {
+      if (!this.gameService.getCode2() && pixelToShow != null) {
         pixelToShow.style.backgroundColor = 'darkblue';
-      } else if (this.gameService.getCode2()) {
+      } else if (this.gameService.getCode2() && pixelToShow != null) {
         const colorRandom = Math.floor(Math.random() * 5);
         switch (colorRandom) {
 case 0:
@@ -621,9 +653,9 @@ case 5:
   }
 
   exitGame(): void {
-    this.clickExitSound.volume = 0.7;
+    this.clickSound.volume = 0.7;
     if (this.gameService.getAudio()) {
-      this.clickExitSound.play();
+      this.clickSound.play();
     }
     this.storeScore();
     clearInterval(this.displayRate);

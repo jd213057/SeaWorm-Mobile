@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
           this.gameActive = false;
         }
         this.userEvent = false;
-            }, 15000);
+            }, 45000);
   }
 
   playBackgroundSound(): void {
@@ -113,7 +113,7 @@ getNavBarFocus() {
     const helpButton = document.getElementById('help');
     const configButton = document.getElementById('config');
     const scoreButton = document.getElementById('score');
-    const exitButton = document.getElementById('exit');
+    const debugButton = document.getElementById('debug');
     startButton.addEventListener('mouseenter', ( event ) => {
     const e = event.target as HTMLElement;
     e.style.backgroundColor = 'cyan';
@@ -146,11 +146,11 @@ getNavBarFocus() {
       const e = event.target as HTMLElement;
       e.style.backgroundColor = '';
     }, false);
-    exitButton.addEventListener('mouseenter', ( event ) => {
+    debugButton.addEventListener('mouseenter', ( event ) => {
       const e = event.target as HTMLElement;
       e.style.backgroundColor  = 'cyan';
     }, false);
-    exitButton.addEventListener('mouseleave', (event) => {
+    debugButton.addEventListener('mouseleave', (event) => {
       const e = event.target as HTMLElement;
       e.style.backgroundColor = '';
     }, false);
@@ -263,8 +263,4 @@ exitButton() {
   this.scoreRequest = false;
   this.debugRequest = false;
   }
-
-shutdownGame(): void {
-  window.close();
-}
 }

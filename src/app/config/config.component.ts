@@ -45,7 +45,9 @@ export class ConfigComponent implements OnInit {
     }
 
     playClickSound(): void {
-      this.clickSound.play();
+      if (this.gameService.getAudio()) {
+        this.clickSound.play();
+      }
     }
 
     activateInputImgChoice(): void {

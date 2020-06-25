@@ -1,10 +1,23 @@
 <div *ngIf="!onGame && !endGame" class="countdown">
   {{getCount()}}
-  </div>
-  <div *ngIf="onGame || endGame" class="game-panel" [ngClass]="endPanelClass()">
-  <div class="panel-title"><span>SeaWorm</span></div><br>
-  <div  class="score-title" [ngClass]="getEndGameClass()"><span>{{getScore()}}</span></div>
+</div>
 
+  <div *ngIf="onGame && !endGame" class="game-panel" [ngClass]="endPanelClass()">
+  <div class="panel-structure">
+  <div class="top-part">
+  <div class="panel-title"><span>Sea Worm</span></div><br>
+  <div  class="score-title" [ngClass]="getEndGameClass()"><span>{{getScore()}}</span></div>
+</div>
+<div class="inside-panel">
+
+  <div class="buttons-left">
+<button id="arrowLeft" class="controls left" (mouseover)="touchLeft()" (click)="touchLeft()" (dblclick)="touchLeft()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-pointant-vers-la-gauche-100.png">
+</button>
+<button id="arrowRight" class="controls right" (mouseover)="touchRight()" (click)="touchRight()" (dblclick)="touchRight()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-100.png">
+</button>
+  </div>
 <div *ngIf="onGame && !endGame" class="grid">
   <div class="line">
     <div id="0-0" class="blank" [ngClass]="getCaseClass()"></div>
@@ -127,11 +140,25 @@
     <div id="9-9" class="blank" [ngClass]="getCaseClass()"></div>
   </div>
 </div>
-<div *ngIf="endGame" class="end-panel">
-  <img src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif" (mouseover)="$event.stopPropagation()">
-</div>
-<button *ngIf="onGame" (click)="exitGame()">
-  <span class = "exit-button-title">Sortir</span>
+<div class="buttons-right">
+  <button id="arrowUp" class="controls up" (mouseover)="touchUp()" (click)="touchUp()" (dblclick)="touchUp()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-haut-100.png">
 </button>
-<div class="exit-msg" *ngIf="endGame"><span>Perdu...</span></div>
+<button id="arrowDown" class="controls down" (mousover)="touchDown()" (click)="touchDown()" (dblclick)="touchDown()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-bas-100.png">
+</button>
+</div>
+</div>
+<div class="bottom-part">
+  <button class="button-exit" *ngIf="onGame" (click)="exitGame()">
+    <span class = "exit-button-title">Sortir</span>
+  </button>
+</div>
+</div>
+</div>
+
+
+<div *ngIf="endGame" class="end-panel">
+  <img class="gif-endgame" src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif" (mouseover)="$event.stopPropagation()">
+<div class="exit-msg"><span>Perdu...</span></div>
 </div>

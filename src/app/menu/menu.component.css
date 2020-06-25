@@ -400,7 +400,7 @@
 
   50% {
     transform: rotate(+10deg);
-    margin-left: 1000%;
+    margin-left: 700%;
     transform: scaleX(1);
   }
 
@@ -513,7 +513,7 @@
 html {
 z-index: 1;
 background-size: cover;
-height: 419px;
+height: 712px;
 cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 overflow: hidden !important;
 }
@@ -524,6 +524,7 @@ span, label {
 
 body {
   margin: 0px 0px 0px 0px !important;
+/*   margin: -50px 0px 0px -50px !important; */
 }
 
 .nav-bar {
@@ -537,50 +538,55 @@ body {
   padding-top: 10px;
   opacity: 80%;
   color: black;
-  width: 110px;
-  height: 50px;;
-  margin-left: 13px;
+  width: 200px;
+  height: 60px;
+  margin-left: 20px;
   border-radius: 50% 20% / 10% 90%;
   border-color: darkblue;
-  font-size: 12px;
+  font-size: 22px;
   font-family: "Pirate Menu";
   background-color: rgb(244, 226, 150);
   cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
 }
 
 .start-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  margin-right: 5px;
   background-image: url("src\assets\images\icons8-pirates-des-caraïbes-32.png");
 }
 
 .config-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  margin-right: 5px;
   background-image: url("src\assets\images\icons8-gouvernail-de-bateau-32.png");
 }
 
 .help-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  margin-right: 5px;
   background-image: url("src\assets\images\icons8-carte-au-trésor-32.png");
 }
 
 .score-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  margin-right: 5px;
   background-image: url("src\assets\images\load_icon.png");
 }
 
-.exit-icon {
-  width: 14px;
-  height: 14px;
-  margin-left: 8px;
-  background-image: url("src\assets\images\icons8-pont-roulant-32.png");
+.debug-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 20px;
+  margin-right: 5px;
+  background-image: url("src\assets\images\icons8-coffre-au-trésor-32.png");
 }
 
 .button-text {
@@ -594,7 +600,7 @@ position: absolute;
 top: 55.8px;
 opacity: 70%;
 margin-left: 31.5px;
-margin-top: 22.3px;
+margin-top: 65.3px;
 }
 
 .party-panel{
@@ -602,13 +608,13 @@ margin-top: 22.3px;
   position: absolute;
   top: 55.8px;
   margin-left: 31.5px;
-  margin-top: 22.3px;
+  margin-top: 65.3px;
   }
 
 .debug-panel {
   z-index: 30;
   position: absolute !important;
-  top: 27.9px;
+  top: 100px;
   opacity: 70%;
   margin-top: 111.7px;
   margin-left: 63.1px;
@@ -630,8 +636,8 @@ transform: scaleX(-1) !important;
 
 
 .yellow-fish {
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: yellowFishFloatToRight;
@@ -645,8 +651,8 @@ transition: 0.5s;
   }
 
 .salmon-fish {
-height: 53.6px;
-width: 53.6px;
+  height: 75px;
+  width: 75px;
 z-index: 10;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -661,8 +667,8 @@ transition: 3s;
   }
 
 .blue-fish {
-height: 53.6px;
-width: 53.6px;
+  height: 75px;
+  width: 75px;
 opacity: 0%;
 z-index: 10;
 animation-iteration-count: infinite;
@@ -679,8 +685,8 @@ transition: 3s;
 
 .normal-fish {
 z-index: 10;
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
 opacity: 0%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -693,8 +699,8 @@ animation-delay: 0s;
 z-index: 10;
 position: absolute;
 bottom: 26%;
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
 opacity: 0%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -710,11 +716,10 @@ transform: scale(0.25);
 
 .crab {
 z-index: 11;
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
 opacity: 0%;
-margin-bottom: 1%;
-margin-top: 6%;
+margin-top: 11%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: walkLeft;
@@ -725,9 +730,9 @@ animation-delay: 0s;
 .starfish {
 z-index: 1;
 position: absolute;
-height: 53.6px;
-width: 53.6px;
-margin-left: 75%;
+height: 75px;
+width: 75px;
+margin-left: 67%;
 bottom: 0%;
 transition: 10s;
 }
@@ -738,15 +743,16 @@ transition: 10s;
 
 .bottle {
 position: absolute;
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
 bottom: 0%;
 margin-left: 10%;
 }
 
 .sea-horse {
-height: 53.6px;
-width: 53.6px;
+height: 75px;
+width: 75px;
+margin-top: 45%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
 animation-name: seaHorseWalk;
@@ -763,9 +769,9 @@ animation-delay: 0s;
 z-index: 20;
 position: absolute;
 opacity: 0%;
-height: 16.75px;
-width: 16.75px;
-left: 14%;
+height: 19.75px;
+width: 19.75px;
+left: 12%;
 bottom: 20%;
 animation-iteration-count: infinite;
 animation-timing-function: linear;
@@ -778,9 +784,9 @@ animation-delay: 0s;
   z-index: 20;
   position: absolute;
   opacity: 0%;
-  height: 16.75px;
-  width: 16.75px;
-  left: 16%;
+  height: 19.75px;
+  width: 19.75px;
+  left: 14%;
   bottom: 23%;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -793,9 +799,9 @@ animation-delay: 0s;
   z-index: 20;
   position: absolute;
   opacity: 0%;
-  height: 16.75px;
-  width: 16.75px;
-  left: 14%;
+  height: 19.75px;
+  width: 19.75px;
+  left: 12%;
   bottom: 19%;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -808,9 +814,9 @@ animation-delay: 0s;
   z-index: 20;
   position: absolute;
   opacity: 0%;
-  height: 16.75px;
-  width: 16.75px;
-  left: 17%;
+  height: 19.75px;
+  width: 19.75px;
+  left: 15%;
   bottom: 22%;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -822,9 +828,9 @@ animation-delay: 0s;
 .jelly-fish {
   z-index: 0;
   position: absolute;
-  height: 53.6px;
-  width: 53.6px;
-  right: 17%;
+  height: 75px;
+  width: 75px;
+  right: 22%;
   top: -15%;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -835,32 +841,32 @@ animation-delay: 0s;
 
 .screensaver {
   position: absolute;
-  font-size: 34px;
+  font-size: 55px;
   font-family: "Pirate Menu";
   color: rgb(244, 226, 150);
   background-color: darkblue;
   top: 0px;
   left: 0px;
   z-index: 1000;
-  width: 630px;
-  height: 419px;
+  width: 1137px;
+  height: 712px;
   opacity: 0.65;
   cursor: none;
 }
 
 .screensaver-img {
-  height: 53.6px;
-  width: 53.6px;
-  margin-top: 83.8px;
-  margin-left: 332.8px;
+  height: 75px;
+  width: 75px;
+  margin-top: 117.8px;
+  margin-left: 535.8px;
 }
 
 .screensaver-text-1 {
-margin-left: 294px;
+margin-left: 457px;
 }
 
 .screensaver-text-2 {
-margin-left: 176px;
+margin-left: 302px;
 }
 
 

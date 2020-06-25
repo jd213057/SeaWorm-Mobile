@@ -9,7 +9,6 @@ import { ConfigComponent } from './config/config.component';
 import { DebugComponent } from './debug/debug.component';
 import { GameService } from './game.service';
 import { IntroComponent } from './intro/intro.component';
-import { ExitDialogComponent } from './exit-dialog/exit-dialog.component';
 import { JeuComponent } from './jeu/jeu.component';
 import { ScoreComponent } from './score/score.component';
 import { MenuTemplateComponent } from './menu-template/menu-template.component';
@@ -23,7 +22,6 @@ import { MenuTemplateComponent } from './menu-template/menu-template.component';
     ConfigComponent,
     DebugComponent,
     IntroComponent,
-    ExitDialogComponent,
     JeuComponent,
     ScoreComponent,
     MenuTemplateComponent
