@@ -42,10 +42,12 @@ export class MenuComponent implements OnInit {
     menu.addEventListener('click', (e) => {
       this.userEvent = true;
       this.gameActive = true;
+      e.stopPropagation();
     });
     menu.addEventListener('mousemove', (e) => {
  this.userEvent = true;
  this.gameActive = true;
+ e.stopPropagation();
                 });
   }
 
