@@ -25,16 +25,16 @@ records: Save[] = [];
       this.themeChoice = localStorage.getItem('themeChoice');
       switch (localStorage.getItem('level')) {
         case 'Facile':
-          this.level = 250;
+          this.level = 275;
           break;
           case 'Moyen':
-            this.level = 175;
+            this.level = 200;
             break;
             case 'Difficile':
-          this.level = 100;
+          this.level = 150;
           break;
         default:
-          this.level = 175;
+          this.level = 200;
           break;
       }
       this.imgChoice = localStorage.getItem('imgChoice');
@@ -51,7 +51,7 @@ records: Save[] = [];
       localStorage.setItem('imgChoice',  this.imgChoice);
       this.themeChoice = 'lava';
       localStorage.setItem('themeChoice', this.themeChoice);
-      this.level = 175;
+      this.level = 200;
       localStorage.setItem('level', this.level.toString());
       this.YOUAREDEAD = false;
       localStorage.setItem('YOUAREDEAD', 'false');
@@ -113,7 +113,7 @@ getLevel(): number {
 }
 
 setLevel(valueInput: number): void {
-  if (valueInput == 250 || valueInput == 175 || valueInput == 100) {
+  if (valueInput == 275 || valueInput == 200 || valueInput == 150) {
       this.level = valueInput;
   }
 }
@@ -187,13 +187,13 @@ saveParamsInLocalStorage(): void {
   localStorage.setItem('themeChoice', this.themeChoice);
   let levelStringified;
   switch (this.level.toString()) {
-    case '250':
+    case '275':
       levelStringified = 'Facile';
       break;
-    case '175':
+    case '200':
       levelStringified = 'Moyen';
       break;
-    case '100':
+    case '150':
       levelStringified = 'Difficile';
       break;
   }

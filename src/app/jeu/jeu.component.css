@@ -13,12 +13,11 @@ span, label {
 
 .game-panel {
   text-align: center;
-  width: 105%;
+  width: 118%;
   background-color: dodgerblue;
   border-radius: 10%;
   border-color: grey;
   border: solid;
-  margin-left: 7%;
   border-width: 5px;
   cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
   opacity: 75%;
@@ -71,13 +70,13 @@ span, label {
   cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
   display: inline-flex;
   color: black;
-  width: 120px;
-  height: 77px;
+  width: 150px;
+  height: 96px;
   border-color: black;
   font-size: 24px;
   font-family: "Pirate Game";
-  padding-top: 10px;
-  padding-left: 27px;
+  padding-top: 20px;
+  padding-left: 40px;
   margin-top: 2%;
   margin-bottom: 4%;
   margin-right: 11%;
@@ -181,22 +180,46 @@ margin-left: 35%;
 }
 
 .inside-panel {
- display: inline-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .buttons-left {
-display: inline-flex;
-width: 300px;
-margin-left: 50px;
-padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 25px;
+  padding-top: 25px;
+}
+
+.button-left {
+display: flex;
+justify-content: flex-start;
+}
+
+.button-down {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .buttons-right {
-  display: inline-grid;
-  width: 200px;
-  padding-left: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-left: 25px;
+  padding-top: 25px;
 }
 
+.button-up {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-right {
+display: flex;
+justify-content: flex-end;
+}
 
 
 

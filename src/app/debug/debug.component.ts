@@ -63,18 +63,26 @@ export class DebugComponent implements OnInit {
     }
 
     onSubmit() {
-      if (this.gameService.getAudio()){
+      if (this.gameService.getAudio()) {
         this.clickSound.play();
       }
       if (this.checkoutForm.value.inputValue == this.code1) {
 this.gameService.setCode1(true);
+this.gameService.setCode3(false);
 localStorage.setItem('YOUAREDEAD', 'true');
+localStorage.setItem('NOBULLSHIT', 'false');
 } else if (this.checkoutForm.value.inputValue == this.code2) {
   this.gameService.setCode2(true);
+  this.gameService.setCode3(false);
   localStorage.setItem('AGAINSTALLODDS', 'true');
+  localStorage.setItem('NOBULLSHIT', 'false');
 } else if (this.checkoutForm.value.inputValue == this.code3) {
   this.gameService.setCode3(true);
+  this.gameService.setCode1(false);
+  this.gameService.setCode2(false);
   localStorage.setItem('NOBULLSHIT', 'true');
+  localStorage.setItem('YOUAREDEAD', 'false');
+  localStorage.setItem('AGAINSTALLODDS', 'false');
 }
       return;
     }

@@ -513,7 +513,8 @@
 html {
 z-index: 1;
 background-size: cover;
-height: 712px;
+width: 100%;
+height: auto;
 cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
 overflow: hidden !important;
 }
@@ -732,7 +733,7 @@ z-index: 1;
 position: absolute;
 height: 75px;
 width: 75px;
-margin-left: 67%;
+margin-left: 71%;
 bottom: 0%;
 transition: 10s;
 }
@@ -848,8 +849,8 @@ animation-delay: 0s;
   top: 0px;
   left: 0px;
   z-index: 1000;
-  width: 1137px;
-  height: 712px;
+  width: 1138px;
+  height: 748px;
   opacity: 0.65;
   cursor: none;
 }

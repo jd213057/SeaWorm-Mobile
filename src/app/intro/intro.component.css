@@ -53,8 +53,8 @@ html {
  background-color: black;
  background-size: cover;
  cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
- width: 1366px;
- height: 768px;
+ width: 100%;
+ height: auto;
  font-size: 68px;
  font-family: "Pirate Game";
  color: gold;
@@ -62,8 +62,8 @@ html {
 }
 
 body {
- width: 1335px !important;
- height: 735px !important;
+ width: 100% !important;
+ height: auto !important;
  font-size: 68px;
  font-family: "Pirate Game";
  color: gold;
@@ -71,8 +71,8 @@ body {
 
 .intro-panel {
  display: inline-flex;
- width: 1335px;
- height: 735px;
+ width: 1138px;
+ height: 712px;
  font-size: 68px;
  font-family: "Pirate Game";
  color: gold;
@@ -84,12 +84,6 @@ body {
  font-size: 68px;
  font-family: "Pirate Game";
  color: gold;
- top: 260px;
- left: 350px;
-}
-
-.img-intro {
-
 }
 
 .word-1 {

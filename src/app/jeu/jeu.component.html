@@ -11,12 +11,16 @@
 <div class="inside-panel">
 
   <div class="buttons-left">
-<button id="arrowLeft" class="controls left" (mouseover)="touchLeft()" (click)="touchLeft()" (dblclick)="touchLeft()">
+    <div class="button-left">
+<button id="arrowLeft" class="controls left" (touchstart)="touchLeft()">
   <img class="img-controls" src="./assets/images/icons8-flèche-pointant-vers-la-gauche-100.png">
 </button>
-<button id="arrowRight" class="controls right" (mouseover)="touchRight()" (click)="touchRight()" (dblclick)="touchRight()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-100.png">
+</div>
+<div class="button-down">
+<button id="arrowDown" class="controls down" (touchstart)="touchDown()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-bas-100.png">
 </button>
+</div>
   </div>
 <div *ngIf="onGame && !endGame" class="grid">
   <div class="line">
@@ -141,12 +145,16 @@
   </div>
 </div>
 <div class="buttons-right">
-  <button id="arrowUp" class="controls up" (mouseover)="touchUp()" (click)="touchUp()" (dblclick)="touchUp()">
+  <div class="button-up">
+  <button id="arrowUp" class="controls up" (touchstart)="touchUp()">
   <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-haut-100.png">
 </button>
-<button id="arrowDown" class="controls down" (mousover)="touchDown()" (click)="touchDown()" (dblclick)="touchDown()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-bas-100.png">
+</div>
+<div class="button-right">
+<button id="arrowRight" class="controls right" (touchstart)="touchRight()">
+  <img class="img-controls" src="./assets/images/icons8-flèche-100.png">
 </button>
+</div>
 </div>
 </div>
 <div class="bottom-part">

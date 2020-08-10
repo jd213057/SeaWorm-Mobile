@@ -1,0 +1,14 @@
+Mise à jour v1.0.2 :
+* Recadrage animation intro
+* Repositionnement des boutons de jeu
+* Resize des boutons de jeu
+* Correctif sur sensibilité des touches
+* Correctif sur les actions enchainées par le SeaWorm
+* Correctif sur l’animation de l’hippocampe
+* Correctif sur l’enregistrement des codes (modeDebug)
+* Correctif de l’affichage d’image de fond
+* Correctif affichage des wording de certains boutons
+* Refonte du système de level design 
+* Correctif sur le screensaver
+
+

@@ -64,7 +64,7 @@ clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460
   }
 
   getHelpButtonClass(): string {
-  return this.step == 0 ||  this.step == 1 || this.step == 2 ? this.cursorClass + ' button-next' : this.cursorClass + ' ' + 'last-button';
+  return this.step == 0 ||  this.step == 1 || this.step == 2 ? this.cursorClass + ' button-next' : this.cursorClass + ' ' + ' last-button';
   }
 
   clickHelpButton(): void {

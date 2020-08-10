@@ -100,21 +100,21 @@ export class JeuComponent implements OnInit {
   }
 
   touchRight(): void {
-    if (this.seaWorm.getDirection() != Direction.gauche) {
+    if (this.seaWorm.getDirection() !== Direction.gauche) {
       this.seaWorm.setDirection(Direction.droite);
       this.controlPressed = true;
     }
   }
 
   touchUp(): void {
-    if (this.seaWorm.getDirection() != Direction.bas) {
+    if (this.seaWorm.getDirection() !== Direction.bas) {
       this.seaWorm.setDirection(Direction.haut);
       this.controlPressed = true;
     }
   }
 
   touchDown(): void {
-    if (this.seaWorm.getDirection() != Direction.haut) {
+    if (this.seaWorm.getDirection() !== Direction.haut) {
       this.seaWorm.setDirection(Direction.bas);
       this.controlPressed = true;
     }
@@ -319,6 +319,7 @@ case TYPE.red:
 const moduloValue = this.food.getCount() % 101;
 switch (moduloValue) {
   case 7:
+  case 11:
   case 15:
   case 23:
   case 27:
@@ -329,7 +330,6 @@ switch (moduloValue) {
   case 77:
     this.food.setType(TYPE.red);
     break;
-  case 11:
   case 31:
   case 71:
   case 97:
