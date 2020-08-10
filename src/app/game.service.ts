@@ -215,13 +215,13 @@ saveRecord(score: number, code1: boolean, code2: boolean): void {
 }
   const level = this.getLevel();
   let levelString;
-  if (level == 100) {
+  if (level == 150) {
     levelString = 'Difficile';
   }
-  if (level == 175) {
+  if (level == 200) {
     levelString = 'Moyen';
   }
-  if (level == 250) {
+  if (level == 275) {
     levelString = 'Facile';
   }
   recordToSave = new Save(lastIdNb, score, levelString, code1, code2);

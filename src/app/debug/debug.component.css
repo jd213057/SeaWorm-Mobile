@@ -23,7 +23,7 @@ span, label {
 .game-panel {
   text-align: center;
   width: 985px;
-  height: 150px;
+  height: 161px;
   background-color: black;
   border-radius: 30px;
   border-color: black;
@@ -42,9 +42,7 @@ span, label {
 }
 
 .button-exitDebug {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: inline-flex;
   color: black;
   width: 220px;
   height: 50px;;

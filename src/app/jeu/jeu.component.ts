@@ -93,28 +93,28 @@ export class JeuComponent implements OnInit {
   }
 
   touchLeft(): void {
-    if (this.seaWorm.getDirection() != Direction.droite) {
+    if (this.seaWorm.getDirection() != Direction.droite && !this.controlPressed) {
       this.seaWorm.setDirection(Direction.gauche);
       this.controlPressed = true;
     }
   }
 
   touchRight(): void {
-    if (this.seaWorm.getDirection() !== Direction.gauche) {
+    if (this.seaWorm.getDirection() !== Direction.gauche && !this.controlPressed) {
       this.seaWorm.setDirection(Direction.droite);
       this.controlPressed = true;
     }
   }
 
   touchUp(): void {
-    if (this.seaWorm.getDirection() !== Direction.bas) {
+    if (this.seaWorm.getDirection() !== Direction.bas && !this.controlPressed) {
       this.seaWorm.setDirection(Direction.haut);
       this.controlPressed = true;
     }
   }
 
   touchDown(): void {
-    if (this.seaWorm.getDirection() !== Direction.haut) {
+    if (this.seaWorm.getDirection() !== Direction.haut && !this.controlPressed) {
       this.seaWorm.setDirection(Direction.bas);
       this.controlPressed = true;
     }
@@ -126,25 +126,25 @@ export class JeuComponent implements OnInit {
       if (this.controlPressed != true) {
         switch (event.key) {
           case 'ArrowDown':
-            if (this.seaWorm.getDirection() != Direction.haut) {
+            if (this.seaWorm.getDirection() != Direction.haut && !this.controlPressed) {
               this.seaWorm.setDirection(Direction.bas);
               this.controlPressed = true;
             }
             break;
           case 'ArrowUp':
-            if (this.seaWorm.getDirection() != Direction.bas) {
+            if (this.seaWorm.getDirection() != Direction.bas && !this.controlPressed) {
               this.seaWorm.setDirection(Direction.haut);
               this.controlPressed = true;
             }
             break;
           case 'ArrowLeft':
-            if (this.seaWorm.getDirection() != Direction.droite) {
+            if (this.seaWorm.getDirection() != Direction.droite && !this.controlPressed) {
               this.seaWorm.setDirection(Direction.gauche);
               this.controlPressed = true;
             }
             break;
           case 'ArrowRight':
-            if (this.seaWorm.getDirection() != Direction.gauche) {
+            if (this.seaWorm.getDirection() != Direction.gauche && !this.controlPressed) {
               this.seaWorm.setDirection(Direction.droite);
               this.controlPressed = true;
             }
