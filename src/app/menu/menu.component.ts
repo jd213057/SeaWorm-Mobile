@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit {
           this.gameActive = false;
         }
         this.userEvent = false;
-            }, 45000);
+            }, 55000);
   }
 
   playBackgroundSound(): void {

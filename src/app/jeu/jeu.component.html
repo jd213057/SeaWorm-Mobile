@@ -158,6 +158,9 @@
 
 
 <div *ngIf="endGame" class="end-panel">
-  <img class="gif-endgame" src="https://media.giphy.com/media/107gPMgIBBleA8/giphy.gif" (mouseover)="$event.stopPropagation()">
+  <video class="video-endgame" muted loop autoplay (mouseover)="$event.stopPropagation()">
+    <source src="./assets/videos/looseGif.mp4"
+            type="video/mp4">
+  </video>
 <div class="exit-msg"><span>Perdu...</span></div>
 </div>

@@ -31,7 +31,7 @@ records: Save[] = [];
             this.level = 225;
             break;
             case 'Difficile':
-          this.level = 175;
+          this.level = 150;
           break;
         default:
           this.level = 225;
@@ -113,7 +113,7 @@ getLevel(): number {
 }
 
 setLevel(valueInput: number): void {
-  if (valueInput == 300 || valueInput == 225 || valueInput == 175) {
+  if (valueInput == 300 || valueInput == 225 || valueInput == 150) {
       this.level = valueInput;
   }
 }
@@ -167,10 +167,9 @@ return this.NOBULLSHIT;
 }
 
 setCode3(valueInput: boolean): void {
-  if (valueInput) {
+  if (valueInput === true) {
     this.setCode1(false);
     this.setCode2(false);
-    this.setCode3(true);
   }
 }
 
@@ -187,10 +186,10 @@ saveParamsInLocalStorage(): void {
   localStorage.setItem('themeChoice', this.themeChoice);
   let levelStringified;
   switch (this.level.toString()) {
-    case '275':
+    case '300':
       levelStringified = 'Facile';
       break;
-    case '200':
+    case '225':
       levelStringified = 'Moyen';
       break;
     case '150':
@@ -201,7 +200,13 @@ saveParamsInLocalStorage(): void {
   localStorage.setItem('imgChoice',  this.imgChoice);
   this.YOUAREDEAD == true ? localStorage.setItem('YOUAREDEAD', 'true') : localStorage.setItem('YOUAREDEAD', 'false');
   this.AGAINSTALLODDS == true ? localStorage.setItem('AGAINSTALLODDS', 'true') : localStorage.setItem('AGAINSTALLODDS', 'false');
-  this.NOBULLSHIT == true ? localStorage.setItem('NOBULLSHIT', 'true') : localStorage.setItem('NOBULLSHIT', 'false');
+  this.NOBULLSHIT == true ? this.saveNOBULLSHIT() : localStorage.setItem('NOBULLSHIT', 'false');
+}
+
+saveNOBULLSHIT(): void {
+  localStorage.setItem('NOBULLSHIT', 'true');
+  localStorage.setItem('YOUAREDEAD', 'false');
+  localStorage.setItem('AGAINSTALLODDS', 'false');
 }
 
 saveRecord(score: number, code1: boolean, code2: boolean): void {
@@ -215,7 +220,7 @@ saveRecord(score: number, code1: boolean, code2: boolean): void {
 }
   const level = this.getLevel();
   let levelString;
-  if (level == 175) {
+  if (level == 150) {
     levelString = 'Difficile';
   }
   if (level == 225) {

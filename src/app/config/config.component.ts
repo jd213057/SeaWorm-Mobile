@@ -102,7 +102,7 @@ export class ConfigComponent implements OnInit {
 
     exitConfig(): void {
       this.clickSound.volume = 0.7;
-      if (this.gameService.getAudio()){
+      if (this.gameService.getAudio()) {
         this.clickSound.play();
       }
       this.gameService.setImgBackgroundTemp(null);

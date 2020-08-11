@@ -52,7 +52,7 @@
 html {
  background-color: black;
  background-size: cover;
- cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+ cursor: url("src\assets\cursors\starfishcur.cur") 4 12, auto;
  width: 100%;
  height: 712px;
  font-size: 68px;

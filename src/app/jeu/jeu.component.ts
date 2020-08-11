@@ -296,7 +296,7 @@ case TYPE.red:
   case TYPE.green:
   this.extraShrinkWorm();
   if (!this.gameService.getCode1()) {
-    this.food.setCount(this.food.getCount() + 100);
+    this.food.setCount(this.food.getCount() + 102);
   }
   break;
   case TYPE.orange:

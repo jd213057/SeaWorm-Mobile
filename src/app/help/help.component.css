@@ -8,7 +8,7 @@
  }
 
  .cursor-in {
-  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
   color: yellowgreen !important;
   background-color: red !important;
 }
@@ -31,7 +31,7 @@ span, label {
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
 }
 
 .panel-title {

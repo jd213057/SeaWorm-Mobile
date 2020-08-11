@@ -515,7 +515,7 @@ z-index: 1;
 height: 135px !important;
 width: 200px !important;
 background-size: contain;
-cursor: url("src\assets\images\starfishcur.cur") 4 12, auto;
+cursor: url("src\assets\cursors\starfishcur.cur") 4 12, auto;
 overflow: hidden !important;
 }
 

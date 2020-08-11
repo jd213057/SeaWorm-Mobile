@@ -8,11 +8,11 @@
  }
 
  input {
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
  }
 
  .cursor-in {
-  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
   background-color: red !important;
   color: yellowgreen !important;
 }
@@ -31,7 +31,7 @@
   border: solid;
   border-width: 7px;
   padding-top: 10px;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
 }
 
 .panel-title {
@@ -96,7 +96,7 @@ display: inline-flex;
   border-radius: 15px;
   border: 2px solid red;
   margin-top: 15px;
-  height: 135px;
+  height: 130px;
   width:200px;
   overflow: hidden;
 }
@@ -155,12 +155,12 @@ display: inline-flex;
 }
 
 span, label {
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
   opacity: 100% !important;
 }
 
 .span-button {
-  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto !important;
 }
 
 .background-view {

@@ -19,7 +19,7 @@ span, label {
   border-color: grey;
   border: solid;
   border-width: 5px;
-  cursor: url("src\assets\images\starfishcur.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
   opacity: 75%;
 }
 
@@ -51,7 +51,7 @@ span, label {
 
 .button-exit {
   z-index: 50;
-  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
   display: inline-flex;
   color: black;
   width: 250px;
@@ -69,7 +69,7 @@ span, label {
 
 .controls {
   z-index: 50;
-  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
   display: inline-flex;
   color: black;
   width: 165px;
@@ -110,7 +110,7 @@ border-radius: 33% 33% 45px 45px;
 }
 
 button:hover {
-cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
+cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
 background-color: darkblue !important;
 color: yellowgreen !important;
 }
@@ -156,15 +156,15 @@ color: yellowgreen !important;
   border-radius: 30px;
 }
 
-.gif-endgame {
+.video-endgame {
   border-color: black;
   border: solid;
   border-width: 7px;
   border-radius: 20px;
-  width: 77%;
-  height: 66%;
+  width: 66.75%;
+  height: 67.5%;
   margin-top: 5%;
-  margin-left: 11%;
+  margin-left: 16%;
 }
 
 .img-controls {
