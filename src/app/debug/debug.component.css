@@ -8,7 +8,7 @@
  }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
   background-color: red !important;
 }
 
@@ -53,7 +53,7 @@ span, label {
   font-size: 30px;
   font-family: "Pirate Menu";
   padding-left: 60px;
-  padding-top: 2px;
+  padding-top: 7px;
   margin-top: 15px;
   background-color: gold;
 }

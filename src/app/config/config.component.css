@@ -12,7 +12,7 @@
  }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
   background-color: red !important;
   color: yellowgreen !important;
 }
@@ -160,7 +160,7 @@ span, label {
 }
 
 .span-button {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto !important;
 }
 
 .background-view {

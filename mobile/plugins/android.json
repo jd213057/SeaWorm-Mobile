@@ -15,10 +15,16 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {
     "es6-promise-plugin": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   }

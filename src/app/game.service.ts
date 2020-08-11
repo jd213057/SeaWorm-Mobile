@@ -25,16 +25,16 @@ records: Save[] = [];
       this.themeChoice = localStorage.getItem('themeChoice');
       switch (localStorage.getItem('level')) {
         case 'Facile':
-          this.level = 275;
+          this.level = 300;
           break;
           case 'Moyen':
-            this.level = 200;
+            this.level = 225;
             break;
             case 'Difficile':
-          this.level = 150;
+          this.level = 175;
           break;
         default:
-          this.level = 200;
+          this.level = 225;
           break;
       }
       this.imgChoice = localStorage.getItem('imgChoice');
@@ -51,7 +51,7 @@ records: Save[] = [];
       localStorage.setItem('imgChoice',  this.imgChoice);
       this.themeChoice = 'lava';
       localStorage.setItem('themeChoice', this.themeChoice);
-      this.level = 200;
+      this.level = 225;
       localStorage.setItem('level', this.level.toString());
       this.YOUAREDEAD = false;
       localStorage.setItem('YOUAREDEAD', 'false');
@@ -113,16 +113,16 @@ getLevel(): number {
 }
 
 setLevel(valueInput: number): void {
-  if (valueInput == 275 || valueInput == 200 || valueInput == 150) {
+  if (valueInput == 300 || valueInput == 225 || valueInput == 175) {
       this.level = valueInput;
   }
 }
 
 getBackgroundImg(): string {
   switch (this.imgChoice) {
-    case 'sable':
-      return './assets/images/background1.jpg';
     case 'corail':
+      return './assets/images/underwater.jpeg';
+    case 'recif':
       return './assets/images/background2.png';
     case 'algue':
       return './assets/images/background3.jpg';
@@ -130,7 +130,7 @@ getBackgroundImg(): string {
 }
 
 setBackgroundImg(valueInput: string): void {
-  if (valueInput == 'sable' || valueInput == 'corail' || valueInput == 'algue') {
+  if (valueInput == 'corail' || valueInput == 'recif' || valueInput == 'algue') {
     this.imgChoice = valueInput;
   }
 }
@@ -215,13 +215,13 @@ saveRecord(score: number, code1: boolean, code2: boolean): void {
 }
   const level = this.getLevel();
   let levelString;
-  if (level == 150) {
+  if (level == 175) {
     levelString = 'Difficile';
   }
-  if (level == 200) {
+  if (level == 225) {
     levelString = 'Moyen';
   }
-  if (level == 275) {
+  if (level == 300) {
     levelString = 'Facile';
   }
   recordToSave = new Save(lastIdNb, score, levelString, code1, code2);

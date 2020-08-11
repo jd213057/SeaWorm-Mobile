@@ -10,5 +10,10 @@ Mise à jour v1.0.2 :
 * Correctif affichage des wording de certains boutons
 * Refonte du système de level design 
 * Correctif sur le screensaver
+* Remplacement image de fond sable => corail, corail => recif
+* Modification comportement nourriture orange
+* Agrandissement du grid central
+* Correction changement mode paysage 180°
+* Modification Config input 1 pour inclure contrôle de Vibration
 
 

@@ -8,7 +8,7 @@
  }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
   color: yellowgreen !important;
   background-color: red !important;
 }

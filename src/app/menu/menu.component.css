@@ -547,7 +547,7 @@ body {
   font-size: 22px;
   font-family: "Pirate Menu";
   background-color: rgb(244, 226, 150);
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto;
 }
 
 .start-icon {

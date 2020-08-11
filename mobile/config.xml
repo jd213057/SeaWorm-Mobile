@@ -19,7 +19,8 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="Fullscreen" value="true" />
-        <preference name="Orientation" value="landscape" />
+        <preference name="Orientation" value="sensorLandscape" />
+        <preference name="HideKeyboardFormAccessoryBar" value="true"/>
          <icon src="res/android/icons8-ver-de-terre-80.png" density="ldpi" />
          <icon  src="res/android/icons8-ver-de-terre-80.png"  density="mdpi" />
          <icon  src="res/android/icons8-ver-de-terre-80.png"  density="hdpi" />

@@ -28,6 +28,7 @@ export class JeuComponent implements OnInit {
   displayRate;
   foodTimer;
   wormSpeed = this.gameService.getLevel();
+  orangeGrowthMode = true;
   eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
   buttonClass = 'no-focus';
@@ -254,9 +255,10 @@ for (let x = 0; x <= 9; x++) {
   this.getScore();
   this.increaseWormSpeed();
 }
-   if (this.food.getType() == TYPE.orange) {
+   if (this.food.getType() == TYPE.orange && this.orangeGrowthMode) {
   this.growWorm();
 }
+   this.orangeGrowthMode = !this.orangeGrowthMode;
    this.showPixels(this.seaWorm);
   } else {
     this.storeScore();
@@ -272,7 +274,9 @@ for (let x = 0; x <= 9; x++) {
   }
 
   vibrateDevice(): void {
-    navigator.vibrate(500);
+    if (this.gameService.getAudio()) {
+      navigator.vibrate(500);
+    }
   }
 
   getFoodEffect(foodtype: TYPE): void {
@@ -323,11 +327,14 @@ switch (moduloValue) {
   case 15:
   case 23:
   case 27:
+  case 39:
   case 43:
   case 53:
   case 59:
   case 73:
   case 77:
+  case 79:
+  case 93:
     this.food.setType(TYPE.red);
     break;
   case 31:

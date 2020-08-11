@@ -51,15 +51,14 @@ export class ConfigComponent implements OnInit {
     }
 
     activateInputImgChoice(): void {
-      const sableImgChoice = document.getElementById('sableImgChoice');
       const corailImgChoice = document.getElementById('corailImgChoice');
+      const recifImgChoice = document.getElementById('recifImgChoice');
       const algueImgChoice = document.getElementById('algueImgChoice');
-      const img = document.getElementById('img');
-      sableImgChoice.addEventListener('click', (event) => {
-        this.imgToShow = './assets/images/background1.jpg';
+      corailImgChoice.addEventListener('click', (event) => {
+        this.imgToShow = './assets/images/underwater.jpeg';
         this.gameService.setImgBackgroundTemp(this.imgToShow);
       });
-      corailImgChoice.addEventListener('click', (event) => {
+      recifImgChoice.addEventListener('click', (event) => {
         this.imgToShow = './assets/images/background2.png';
         this.gameService.setImgBackgroundTemp(this.imgToShow);
       });
@@ -91,7 +90,7 @@ export class ConfigComponent implements OnInit {
     }
 
     onSubmit() {
-      if (this.gameService.getAudio()){
+      if (this.gameService.getAudio()) {
         this.clickSound.play();
       }
       this.gameService.setAudio(this.checkoutForm.get('audio').value);

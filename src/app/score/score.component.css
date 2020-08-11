@@ -14,13 +14,13 @@
 }
 
  .cursor-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto !important;
   color: yellowgreen !important;
   background-color: red !important;
 }
 
 .cursor-dialog-in {
-  cursor: url("src\assets\Poker\Hand-Right.cur") 0 0, auto !important;
+  cursor: url("src\assets\images\Hand-Right.cur") 0 0, auto !important;
   color: black !important;
   background-color: plum !important;
 }

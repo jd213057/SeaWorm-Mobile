@@ -37,16 +37,16 @@
   <label class="label-panel-2">Niveau :</label><br>
   <div class="section-3">
     <div>
-      <input formControlName="level" type="radio" id="Facile" name="level" value='275'
+      <input formControlName="level" type="radio" id="Facile" name="level" value='300'
              ng-model="configInput" (click)="playClickSound()">
       <label for="Facile"><span class="choice">Facile</span></label>
     </div>
     <div>
-      <input formControlName="level" type="radio" id="Moyen" name="level" value='200' ng-model="configInput" (click)="playClickSound()" checked>
+      <input formControlName="level" type="radio" id="Moyen" name="level" value='225' ng-model="configInput" (click)="playClickSound()" checked>
       <label for="Moyen"><span class="choice">Moyen</span></label>
     </div>
     <div>
-      <input formControlName="level" type="radio" id="Difficile" name="level" value='150' ng-model="configInput" (click)="playClickSound()">
+      <input formControlName="level" type="radio" id="Difficile" name="level" value='175' ng-model="configInput" (click)="playClickSound()">
       <label for="Difficile"><span class="choice">Difficile</span></label>
     </div>
   </div>
@@ -55,12 +55,12 @@
   <div class="imgChoice">
     <label class="label-theme">Fond d'ecran :</label>
     <div class="imgChoice-input" >
-    <input formControlName="imgChoice" type="radio" id="sableImgChoice" name="imgChoice" value="sable"
+    <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail"
            ng-model="configInput" (click)="playClickSound()">
-    <label for="sableImgChoice"><span class="choice">Sable</span></label></div>
+    <label for="corailImgChoice"><span class="choice">Corail</span></label></div>
     <div class="imgChoice-input" >
-    <input formControlName="imgChoice" type="radio" id="corailImgChoice" name="imgChoice" value="corail" ng-model="configInput" (click)="playClickSound()">
-    <label class="imgChoice-input" for="corailImgChoice"><span class="choice">Corail</span></label></div>
+    <input formControlName="imgChoice" type="radio" id="recifImgChoice" name="imgChoice" value="recif" ng-model="configInput" (click)="playClickSound()">
+    <label class="imgChoice-input" for="recifImgChoice"><span class="choice">Recif</span></label></div>
     <div class="imgChoice-input" >
     <input formControlName="imgChoice" type="radio" id="algueImgChoice" name="imgChoice" value="algue" ng-model="configInput" (click)="playClickSound()">
     <label class="imgChoice-input" for="algueImgChoice"><span class="choice">Algue</span></label></div>
