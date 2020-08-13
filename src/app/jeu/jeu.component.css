@@ -156,6 +156,19 @@ color: yellowgreen !important;
   border-radius: 30px;
 }
 
+.bestscore-panel {
+  position: absolute !important;
+  opacity: 87.5% !important;
+  width: 670px !important;
+  height: 415px !important;
+  left: 195px;
+  margin-left: -35%;
+  margin-top: 13%;
+  background-color: black;
+  border: 3px solid yellowgreen;
+  border-radius: 30px;
+}
+
 .video-endgame {
   border-color: black;
   border: solid;
@@ -165,6 +178,17 @@ color: yellowgreen !important;
   height: 67.5%;
   margin-top: 5%;
   margin-left: 16%;
+}
+
+.video-bestscore {
+  border-color: dodgerblue;
+  border: solid;
+  border-width: 7px;
+  border-radius: 20px;
+  width: 59.75%;
+  height: auto;
+  margin-top: 2%;
+  margin-left: 19%;
 }
 
 .img-controls {
@@ -183,6 +207,23 @@ font-size: 3em;
 font-family: "Pirate Game";
 margin-top: 2%;
 margin-left: 35%;
+}
+
+.bestscore-title {
+  color: red;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  font-family: "Pirate Game";
+  margin-top: 2%;
+}
+
+.bestscore-msg {
+  color: red;
+  display: flex;
+  justify-content: center;
+  font-size: 1.75em;
+  font-family: "Pirate Game";
 }
 
 .panel-structure {

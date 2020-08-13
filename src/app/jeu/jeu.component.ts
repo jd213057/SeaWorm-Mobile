@@ -1,3 +1,4 @@
+import { GameState } from './../classes/GameState';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Worm, Direction } from '../classes/Worm';
 import { Food, TYPE } from '../classes/Food';
@@ -19,10 +20,13 @@ export class JeuComponent implements OnInit {
   poison1: Poison;
   poison2: Poison;
   poison3: Poison;
-  score: number;
+  score = 0;
   compteur = '3';
+  gameState = GameState.Begin;
   onGame = false;
-  endGame = false;
+  showCongrats = false;
+  looseDisplay = false;
+  bestScoreDisplay = false;
   isBitten = false;
   controlPressed = false;
   displayRate;
@@ -31,6 +35,7 @@ export class JeuComponent implements OnInit {
   orangeGrowthMode = true;
   eatSound = new Audio('.\\assets\\sounds\\eat.mp3');
   clickSound = new Audio('.\\assets\\sounds\\Button_Press_4-Marianne_Gagnon-570460555.mp3');
+  winSound = new Audio('.\\assets\\sounds\\winSound.mp3');
   buttonClass = 'no-focus';
 
 
@@ -48,6 +53,22 @@ export class JeuComponent implements OnInit {
   clearTimeout();
   }
 
+  displayGameCountdown(): boolean {
+    return this.gameState === GameState.Begin;
+  }
+
+  displayGamePanel(): boolean {
+    return this.gameState === GameState.Play;
+  }
+
+  displayEndGamePanel(): boolean {
+    return this.gameState === GameState.End;
+  }
+
+  displayBestScorePanel(): boolean {
+    return this.gameState === GameState.BestScore;
+  }
+
   countdownTimer(): void {
     let count = 3;
     const startSound = new Audio('.\\assets\\sounds\\start-sound.mp3');
@@ -62,6 +83,7 @@ export class JeuComponent implements OnInit {
     this.compteur = 'Go';
     setTimeout(() => {
   clearInterval(timer);
+  this.gameState = GameState.Play;
   this.onGame = true;
 }, 1000);
   }
@@ -300,6 +322,9 @@ case TYPE.red:
   }
   break;
   case TYPE.orange:
+    if (this.gameService.getAudio()) {
+      this.winSound.play();
+    }
     this.food.setType(TYPE.yellowgreen);
     this.food.setCount(this.food.getCount() + 1);
     break;
@@ -322,10 +347,8 @@ case TYPE.red:
   setFoodType(): void {
 const moduloValue = this.food.getCount() % 101;
 switch (moduloValue) {
-  case 7:
   case 11:
   case 15:
-  case 23:
   case 27:
   case 39:
   case 43:
@@ -383,7 +406,7 @@ return true;
   }
 
   getScore(): number {
-  return this.food.getCount();
+  return this.score = this.food.getCount();
   }
 
   placePoisonsOnStart(): void {
@@ -638,12 +661,22 @@ case 5:
     this.gameService.saveRecord(this.food.getCount(), this.gameService.getCode1(), this.gameService.getCode2());
   }
 
+  isBestPlayerScore(): boolean {
+    const playerRecords = this.gameService.getRecordListSortedDsc();
+    const playerScores = playerRecords.map(record => record.score);
+    console.log(playerScores);
+    if (playerScores.length === 1) {
+      return true;
+    }
+    return this.showCongrats = this.score > playerScores[1];
+  }
+
   endPanelClass(): string {
-   return this.endGame ? 'end-panel' : '';
+   return this.looseDisplay ? 'end-panel' : '';
   }
 
   getEndGameClass(): string {
-    return this.endGame ? 'score-endGame' : '';
+    return this.looseDisplay ? 'score-endGame' : '';
   }
 
   looseGame(): void {
@@ -651,12 +684,25 @@ case 5:
     if (this.gameService.getAudio()) {
       gameOverSound.play();
     }
+    this.gameState = GameState.End;
     this.onGame = false;
-    this.endGame = true;
+    this.looseDisplay = true;
     clearInterval(this.displayRate);
     setTimeout(() => {
-      this.displayParty.emit();
-    }, 10000);
+      this.looseDisplay = false;
+      this.bestScoreDisplay = this.isBestPlayerScore();
+      if (this.bestScoreDisplay === true) {
+        this.gameState = GameState.BestScore;
+        if (this.gameService.getAudio()) {
+          this.winSound.play();
+        }
+        setTimeout(() => {
+          this.displayParty.emit();
+        }, 7500);
+      } else {
+        this.displayParty.emit();
+      }
+    }, 7500);
   }
 
   exitGame(): void {

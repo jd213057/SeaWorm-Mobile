@@ -20,16 +20,18 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-screen-orientation": {},
       "cordova-plugin-vibration": {},
-      "cordova-plugin-background-mode": {}
+      "cordova-plugin-background-mode": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "android"
     ]
   },
   "dependencies": {
-    "cordova-plugin-background-mode": "^0.7.3",
+    "cordova-plugin-background-mode": "git+https://github.com/katzer/cordova-plugin-background-mode.git",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-screen-orientation": "^3.0.2",
+    "cordova-plugin-splashscreen": "^6.0.0",
     "cordova-plugin-vibration": "^3.1.1",
     "es6-promise-plugin": "^4.2.2"
   }

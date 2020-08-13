@@ -21,23 +21,25 @@ export class Save {
     const saveDay = new Date();
     const year = saveDay.getUTCFullYear().toString();
     let month = (saveDay.getUTCMonth() + 1).toString();
-    if (month.length == 1) {
+    if (month.length === 1) {
       month = '0' + month;
     }
     let day = saveDay.getUTCDate().toString();
-    if (day.length == 1) {
+    if (day.length === 1) {
       day = '0' + day;
     }
-    let hour = (saveDay.getUTCHours() + 2).toString();
-    if (hour.length == 1) {
-      hour = '0' + hour;""
+    let hourNumber = (saveDay.getUTCHours() + 2);
+    hourNumber = hourNumber % 23;
+    let hour = hourNumber.toString();
+    if (hour.length === 1) {
+      hour = '0' + hour;
     }
     let min = saveDay.getUTCMinutes().toString();
-    if (min.length == 1) {
+    if (min.length === 1) {
       min = '0' + min;
     }
     let sec = saveDay.getUTCSeconds().toString();
-    if (sec.length == 1) {
+    if (sec.length === 1) {
       sec = '0' + sec;
     }
     return day + '/' + month + '/' + year + '-' + hour + ':' + min + ':' + sec;

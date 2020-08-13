@@ -18,5 +18,11 @@ Mise à jour v1.0.2 :
 * fichier statique pour gif fin de partie
 * Reorganisation repertoire Assets
 * gif fin de partie => mp4 sans wifi requis
+* Redesign du logo du jeu
+* Correction d’un bug d’affichage de l’heure sur les sauvegardes
+* Ajout affichage meilleur score obtenu
+* Ajout nouveau son si meilleur score obtenu
+* Ajout splashscreen
+* Amelioration affichage menu-template
 
 

@@ -16,6 +16,10 @@
     <feature name="BackgroundModeExt">
         <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundModeExt" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Sea Worm</name>
     <description>
         Underwater version of the famous Snake game.
@@ -32,12 +36,17 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-intent href="market:*" />
-    <icon density="ldpi" src="res/android/icons8-ver-de-terre-80.png" />
-    <icon density="mdpi" src="res/android/icons8-ver-de-terre-80.png" />
-    <icon density="hdpi" src="res/android/icons8-ver-de-terre-80.png" />
-    <icon density="xhdpi" src="res/android/icons8-ver-de-terre-80.png" />
+    <icon density="ldpi" height="80" src="res/android/icons8-ver-de-terre-80.png" width="80" />
+    <icon density="mdpi" height="80" src="res/android/icons8-ver-de-terre-80.png" width="80" />
+    <icon density="hdpi" height="80" src="res/android/icons8-ver-de-terre-80.png" width="80" />
+    <icon density="xhdpi" height="80" src="res/android/icons8-ver-de-terre-80.png" width="80" />
+    <splash density="mdpi" src="res/android/splashscreen.png" />
+    <splash density="xh" src="res/android/splashscreen.png" />
+    <splash density="hdpi" src="res/android/splashscreen.png" />
+    <splash density="ldpi" src="res/android/splashscreen.png" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="KeepRunning" value="true" />
+    <preference name="SplashScreenDelay" value="5000" />
     <preference name="Fullscreen" value="true" />
     <preference name="Orientation" value="sensorLandscape" />
     <preference name="HideKeyboardFormAccessoryBar" value="true" />

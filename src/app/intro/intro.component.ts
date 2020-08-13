@@ -14,10 +14,10 @@ export class IntroComponent implements OnInit {
     constructor(protected gameService: GameService) { }
 
     ngOnInit() {
-      this.playIntro();
+      this.playIntroMusic();
     }
 
-    playIntro(): void {
+    playIntroMusic(): void {
       if (this.gameService.getAudio()) {
         this.musicIntro.play();
       }

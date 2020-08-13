@@ -34,7 +34,7 @@
   "cordova-plugin-background-mode": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-background-mode"
+      "id": "https://github.com/katzer/cordova-plugin-background-mode.git"
     },
     "is_top_level": true,
     "variables": {}
@@ -45,6 +45,14 @@
       "id": "cordova-plugin-device"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@6.0.0"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

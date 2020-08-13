@@ -1,27 +1,24 @@
 {
-  "_from": "cordova-plugin-background-mode",
+  "_from": "git+https://github.com/katzer/cordova-plugin-background-mode.git",
   "_id": "cordova-plugin-background-mode@0.7.3",
   "_inBundle": false,
-  "_integrity": "sha512-LsU1v7EgTUROaks+tcQ8TnMzVUcU/TwjDVwj2O/4e4aI2q2ldLGsiZorqKqfqvwh2HoIssmY73OwJk91hQi62w==",
+  "_integrity": "",
   "_location": "/cordova-plugin-background-mode",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
-    "registry": true,
-    "raw": "cordova-plugin-background-mode",
-    "name": "cordova-plugin-background-mode",
-    "escapedName": "cordova-plugin-background-mode",
-    "rawSpec": "",
-    "saveSpec": null,
-    "fetchSpec": "latest"
+    "type": "git",
+    "raw": "https://github.com/katzer/cordova-plugin-background-mode.git",
+    "rawSpec": "https://github.com/katzer/cordova-plugin-background-mode.git",
+    "saveSpec": "git+https://github.com/katzer/cordova-plugin-background-mode.git",
+    "fetchSpec": "https://github.com/katzer/cordova-plugin-background-mode.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-background-mode/-/cordova-plugin-background-mode-0.7.3.tgz",
-  "_shasum": "066f92c99f403b3ed3d6fb91f281a0a7ccbc84ba",
-  "_spec": "cordova-plugin-background-mode",
+  "_resolved": "git+https://github.com/katzer/cordova-plugin-background-mode.git#0a6bf35cb9f2bfcb8a0a79767b57158e17a32f13",
+  "_spec": "https://github.com/katzer/cordova-plugin-background-mode.git",
   "_where": "C:\\Users\\jonat\\Desktop\\Android Apps\\SeaWorm\\mobile",
   "author": {
     "name": "Sebastián Katzer"

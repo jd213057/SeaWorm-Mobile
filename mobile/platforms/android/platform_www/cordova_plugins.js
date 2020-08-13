@@ -30,6 +30,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova.plugins.backgroundMode",
         "plugin.backgroundMode"
       ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -38,6 +46,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-screen-orientation": "3.0.2",
     "cordova-plugin-vibration": "3.1.1",
     "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-background-mode": "0.7.3"
+    "cordova-plugin-background-mode": "0.7.3",
+    "cordova-plugin-splashscreen": "6.0.0"
   };
 });

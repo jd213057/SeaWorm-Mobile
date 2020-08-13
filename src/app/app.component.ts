@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showIntro = true;
+  showIntro: boolean;
   showGame = false;
 
 constructor() {}
+
+ngOnInit(): void {
+this.initGame();
+}
+
+initGame(): void {
+  setTimeout(() => {
+this.showIntro = true;
+  }, 5001);
+}
 
 displayApps() {
 this.showIntro = false;

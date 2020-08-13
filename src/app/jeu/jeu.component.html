@@ -1,8 +1,8 @@
-<div *ngIf="!onGame && !endGame" class="countdown">
+<div *ngIf="displayGameCountdown()" class="countdown">
   {{getCount()}}
 </div>
 
-  <div *ngIf="onGame && !endGame" class="game-panel" [ngClass]="endPanelClass()">
+  <div *ngIf="displayGamePanel()" class="game-panel" [ngClass]="endPanelClass()">
   <div class="panel-structure">
   <div class="top-part">
   <div class="panel-title"><span>Sea Worm</span></div><br>
@@ -17,7 +17,7 @@
   <img class="img-controls" src="./assets/images/icons8-flèche-100.png">
 </button>
   </div>
-<div *ngIf="onGame && !endGame" class="grid">
+<div *ngIf="displayGamePanel()" class="grid">
   <div class="line">
     <div id="0-0" class="blank" [ngClass]="getCaseClass()"></div>
     <div id="1-0" class="blank" [ngClass]="getCaseClass()"></div>
@@ -157,10 +157,19 @@
 </div>
 
 
-<div *ngIf="endGame" class="end-panel">
+<div *ngIf="displayEndGamePanel()" class="end-panel">
   <video class="video-endgame" muted loop autoplay (mouseover)="$event.stopPropagation()">
     <source src="./assets/videos/looseGif.mp4"
             type="video/mp4">
   </video>
 <div class="exit-msg"><span>Perdu...</span></div>
+</div>
+
+<div *ngIf="displayBestScorePanel()" class="bestscore-panel">
+  <div class="bestscore-title"><span>Meilleur score avec {{score}} points !</span></div>
+  <video class="video-bestscore" muted loop autoplay (mouseover)="$event.stopPropagation()">
+    <source src="./assets/videos/bestScoreGif.mp4"
+            type="video/mp4">
+  </video>
+<div class="bestscore-msg"><span>Pas mal du tout!</span></div>
 </div>
