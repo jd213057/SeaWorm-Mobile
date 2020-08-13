@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Requires 718*429 res in Responsive Mode on Chrome and Mozilla to be displayed -->
-<html>
+<html id="app">
     <head>
         <base href="./">
         <meta http-equiv="Content-Security-Policy" script-src='unsafe-inline';>
@@ -24,6 +24,17 @@
 }
         </style>
         <title>SeaWorm</title>
+        <script>
+            const app = document.getElementById('app');
+  app.addEventListener('deviceready', () => {
+    app.addEventListener('pause', () => {
+       this.gameService.setGameState(GameState.Pause);
+    }, false);
+    app.addEventListener('resume', () => {
+      this.gameService.setGameState(GameState.Play);
+   }, false);
+  }, false);
+        </script>
     </head>
     <body width="100%" heigth="712" overflow="hidden">
       <app-root></app-root>

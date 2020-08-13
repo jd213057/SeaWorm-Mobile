@@ -1,5 +1,5 @@
 import { GameState } from './../classes/GameState';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Worm, Direction } from '../classes/Worm';
 import { Food, TYPE } from '../classes/Food';
 import { Case, State } from '../classes/Case';
@@ -14,6 +14,7 @@ import { Poison } from '../classes/Poison';
 })
 export class JeuComponent implements OnInit {
   @Output() displayParty = new EventEmitter();
+  @Input() isGameComponentOnPlay = true;
   grid: Case[] = [];
   seaWorm: Worm;
   food: Food;
@@ -51,6 +52,7 @@ export class JeuComponent implements OnInit {
   ngOnDestroy(): void {
   clearInterval(this.displayRate);
   clearTimeout();
+  this.isGameComponentOnPlay = false;
   }
 
   displayGameCountdown(): boolean {
@@ -217,6 +219,8 @@ for (let x = 0; x <= 9; x++) {
   }
 
   placeAgainFood(): void {
+    console.log('foodCount', this.food.getCount());
+    console.log('wormSpeed', this.wormSpeed);
     let restart = false;
     let positionX: number;
     let positionY: number;
@@ -260,25 +264,27 @@ for (let x = 0; x <= 9; x++) {
   }
 
   displayGame(): void {
-    this.displayRate = setInterval((run) => {
-          this.runGameCycle();
-     }, this.wormSpeed);
+    this.displayRate = setTimeout(() => {
+      this.runGameCycle();
+      if (this.isGameComponentOnPlay) {
+        this.displayGame();
+      }
+    }, this.wormSpeed);
   }
 
   runGameCycle(): void {
     this.isBitten = this.checkBites();
-    if (this.isBitten == false) {
+    if (this.isBitten === false) {
    this.moveWorm(this.seaWorm);
-   if (this.food.getCase().getId() == this.seaWorm.getCases()[0].getId()) {
+   if (this.food.getCase().getId() === this.seaWorm.getCases()[0].getId()) {
   this.playEatSound();
   this.vibrateDevice();
   this.getFoodEffect(this.food.getType());
   this.placeAgainFood();
   this.setFoodType();
   this.getScore();
-  this.increaseWormSpeed();
 }
-   if (this.food.getType() == TYPE.orange && this.orangeGrowthMode) {
+   if (this.food.getType() === TYPE.orange && this.orangeGrowthMode) {
   this.growWorm();
 }
    this.orangeGrowthMode = !this.orangeGrowthMode;
@@ -305,37 +311,51 @@ for (let x = 0; x <= 9; x++) {
   getFoodEffect(foodtype: TYPE): void {
     switch (foodtype) {
 case TYPE.yellowgreen:
+this.increaseWormSpeed();
 this.growWorm();
 if (!this.gameService.getCode1()) {
   this.food.setCount(this.food.getCount() + 1);
 }
 break;
 case TYPE.red:
+  this.wormSpeed += 2;
   this.shrinkWorm();
   if (!this.gameService.getCode1()) {
     this.food.setCount(this.food.getCount() + 2);
   }
   break;
   case TYPE.green:
-  this.extraShrinkWorm();
-  if (!this.gameService.getCode1()) {
-    this.food.setCount(this.food.getCount() + 102);
-  }
-  break;
-  case TYPE.orange:
+    if (this.gameService.getLevel() === 225 || this.gameService.getLevel() === 300) {
+      this.wormSpeed = this.gameService.getLevel();
+    } else if (this.gameService.getLevel() === 150) {
+      this.wormSpeed += this.food.getCount();
+    }
     if (this.gameService.getAudio()) {
       this.winSound.play();
+    }
+    this.extraShrinkWorm();
+    if (!this.gameService.getCode1()) {
+    this.food.setCount(this.food.getCount() + 102);
+  }
+    break;
+  case TYPE.orange:
+    if (this.gameService.getLevel() === 300) {
+      this.wormSpeed = this.gameService.getLevel();
+    } else {
+      this.wormSpeed += 10;
     }
     this.food.setType(TYPE.yellowgreen);
     this.food.setCount(this.food.getCount() + 1);
     break;
   case TYPE.purple:
+    this.wormSpeed += 3;
     this.mediumShrinkWorm();
     this.food.setCount(this.food.getCount() + 3);
     this.removePoisons();
     this.food.setType(TYPE.yellowgreen);
     break;
     case TYPE.darkblue:
+      this.wormSpeed += 3;
       if (this.foodTimer != null || this.foodTimer != undefined) {
         clearTimeout(this.foodTimer);
       }
@@ -645,7 +665,7 @@ case 5:
   }
         this.controlPressed = false;
 }
-      if (i != 0) {
+      if (i !== 0) {
     newWormCase = wormCases[i - 1];
     pixelToMove = new Case (State.worm, newWormCase.getPositionX(), newWormCase.getPositionY());
 }
@@ -655,7 +675,26 @@ case 5:
   }
 
   increaseWormSpeed(): void {
-    this.wormSpeed = this.wormSpeed - 0.05 * this.wormSpeed;
+    switch (this.gameService.getLevel()) {
+      case 300:
+        if (this.wormSpeed >= 200) {
+          this.wormSpeed -= 5;
+        }
+        break;
+      case 225:
+        if (this.wormSpeed >= 150) {
+          this.wormSpeed -= 2.5;
+        }
+        break;
+      case 150:
+        if (this.wormSpeed >= 100) {
+          this.wormSpeed -= 1;
+        }
+        break;
+      default:
+      this.wormSpeed = 225;
+      break;
+    }
   }
 
   storeScore(): void {
@@ -665,7 +704,6 @@ case 5:
   isBestPlayerScore(): boolean {
     const playerRecords = this.gameService.getRecordListSortedDsc();
     const playerScores = playerRecords.map(record => record.score);
-    console.log(playerScores);
     if (playerScores.length === 1) {
       return true;
     }
@@ -689,7 +727,8 @@ case 5:
     this.gameState = this.gameService.gameState;
     this.onGame = false;
     this.looseDisplay = true;
-    clearInterval(this.displayRate);
+    this.isGameComponentOnPlay = false;
+    clearTimeout(this.displayRate);
     setTimeout(() => {
       this.looseDisplay = false;
       this.bestScoreDisplay = this.isBestPlayerScore();
@@ -718,7 +757,8 @@ case 5:
       this.clickSound.play();
     }
     this.storeScore();
-    clearInterval(this.displayRate);
+    clearTimeout(this.displayRate);
+    this.isGameComponentOnPlay = false;
     this.displayParty.emit();
   }
 

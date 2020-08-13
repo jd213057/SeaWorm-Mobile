@@ -22,7 +22,7 @@ records: Save[] = [];
   }
 
   loadLocalStorageParam(): void {
-    if (localStorage.length == 8) {
+    if (localStorage.length === 8) {
       this.audio = localStorage.getItem('audio');
       this.themeChoice = localStorage.getItem('themeChoice');
       switch (localStorage.getItem('level')) {
@@ -41,11 +41,11 @@ records: Save[] = [];
       }
       this.imgChoice = localStorage.getItem('imgChoice');
       let booleanString = localStorage.getItem('YOUAREDEAD');
-      this.YOUAREDEAD = booleanString == 'true' ? true : false;
+      this.YOUAREDEAD = booleanString === 'true' ? true : false;
       booleanString = localStorage.getItem('AGAINSTALLODDS');
-      this.AGAINSTALLODDS = booleanString == 'true' ? true : false;
+      this.AGAINSTALLODDS = booleanString === 'true' ? true : false;
       booleanString = localStorage.getItem('NOBULLSHIT');
-      this.NOBULLSHIT = booleanString == 'true' ? true : false;
+      this.NOBULLSHIT = booleanString === 'true' ? true : false;
     } else {
       this.audio = 'audioOn';
       localStorage.setItem('audio', this.audio);
@@ -53,7 +53,7 @@ records: Save[] = [];
       localStorage.setItem('imgChoice',  this.imgChoice);
       this.themeChoice = 'lava';
       localStorage.setItem('themeChoice', this.themeChoice);
-      this.level = 225;
+      this.level = 300;
       localStorage.setItem('level', this.level.toString());
       this.YOUAREDEAD = false;
       localStorage.setItem('YOUAREDEAD', 'false');

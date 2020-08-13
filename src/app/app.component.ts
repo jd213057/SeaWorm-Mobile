@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from './game.service';
-import { GameState } from './classes/GameState';
 
 @Component({
   selector: 'app-root',
@@ -18,14 +17,6 @@ this.initGame();
 }
 
 initGame(): void {
-  document.addEventListener('deviceready', () => {
-    document.addEventListener('pause', () => {
-       this.gameService.setGameState(GameState.Pause);
-    });
-    document.addEventListener('resume', () => {
-      this.gameService.setGameState(GameState.Play);
-   });
-  });
   setTimeout(() => {
 this.showIntro = true;
   }, 5001);
