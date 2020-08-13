@@ -22,7 +22,7 @@ export class JeuComponent implements OnInit {
   poison3: Poison;
   score = 0;
   compteur = '3';
-  gameState = GameState.Begin;
+  gameState = this.gameService.getGameState();
   onGame = false;
   showCongrats = false;
   looseDisplay = false;
@@ -83,7 +83,8 @@ export class JeuComponent implements OnInit {
     this.compteur = 'Go';
     setTimeout(() => {
   clearInterval(timer);
-  this.gameState = GameState.Play;
+  this.gameService.setGameState(GameState.Play);
+  this.gameState = this.gameService.gameState;
   this.onGame = true;
 }, 1000);
   }
@@ -684,7 +685,8 @@ case 5:
     if (this.gameService.getAudio()) {
       gameOverSound.play();
     }
-    this.gameState = GameState.End;
+    this.gameService.setGameState(GameState.End);
+    this.gameState = this.gameService.gameState;
     this.onGame = false;
     this.looseDisplay = true;
     clearInterval(this.displayRate);
@@ -692,11 +694,14 @@ case 5:
       this.looseDisplay = false;
       this.bestScoreDisplay = this.isBestPlayerScore();
       if (this.bestScoreDisplay === true) {
-        this.gameState = GameState.BestScore;
+        this.gameService.setGameState(GameState.BestScore);
+        this.gameState = this.gameService.gameState;
         if (this.gameService.getAudio()) {
           this.winSound.play();
         }
         setTimeout(() => {
+          this.gameService.setGameState(GameState.Begin);
+          this.gameState = this.gameService.gameState;
           this.displayParty.emit();
         }, 7500);
       } else {
@@ -707,6 +712,8 @@ case 5:
 
   exitGame(): void {
     this.clickSound.volume = 0.7;
+    this.gameService.setGameState(GameState.Begin);
+    this.gameState = this.gameService.gameState;
     if (this.gameService.getAudio()) {
       this.clickSound.play();
     }

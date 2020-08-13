@@ -1,4 +1,5 @@
 Mise à jour v1.0.2 :
+
 * Recadrage animation intro
 * Repositionnement des boutons de jeu
 * Resize des boutons de jeu
@@ -24,5 +25,5 @@ Mise à jour v1.0.2 :
 * Ajout nouveau son si meilleur score obtenu
 * Ajout splashscreen
 * Amelioration affichage menu-template
-
+* Ajout de nouvelles preferences dans le config.xml
 

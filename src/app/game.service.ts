@@ -1,3 +1,4 @@
+import { GameState } from './classes/GameState';
 import { Injectable } from '@angular/core';
 import { Save } from './classes/Save';
 
@@ -5,6 +6,7 @@ import { Save } from './classes/Save';
   providedIn: 'root'
 })
 export class GameService {
+gameState = GameState.Begin;
 audio: string;
 themeChoice: string;
 level: number;
@@ -63,6 +65,14 @@ records: Save[] = [];
     }
   }
 
+  getGameState(): GameState {
+    return this.gameState;
+  }
+
+  setGameState(value: GameState) {
+    this.gameState = value;
+  }
+
   getAudioPref(): string {
     return this.audio;
   }
@@ -80,13 +90,13 @@ records: Save[] = [];
   }
 
 getAudio(): boolean {
-  if (this.audio == 'audioOn') {
+  if (this.audio === 'audioOn' && this.gameState !== GameState.Pause) {
     return true;
   } else { return false; }
 }
 
 setAudio(valueInput: string): void {
-  if (valueInput == 'audioOn' || valueInput == 'audioOff') {
+  if (valueInput === 'audioOn' || valueInput === 'audioOff') {
     this.audio = valueInput;
   }
 }

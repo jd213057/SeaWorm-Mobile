@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
+import { GameState } from '../classes/GameState';
 
 @Component({
   selector: 'app-menu',
@@ -174,6 +175,7 @@ getNavBarFocus() {
   }
 
 startButton()  {
+  this.gameService.setGameState(GameState.Begin);
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
@@ -185,6 +187,7 @@ startButton()  {
   }
 
 helpButton(): void {
+  this.gameService.setGameState(GameState.Begin);
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
@@ -196,6 +199,7 @@ helpButton(): void {
   }
 
 configButton(): void {
+  this.gameService.setGameState(GameState.Begin);
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
@@ -207,6 +211,7 @@ configButton(): void {
   }
 
 debugButton(): void {
+  this.gameService.setGameState(GameState.Begin);
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
@@ -218,6 +223,7 @@ debugButton(): void {
   }
 
   scoreButton(): void {
+    this.gameService.setGameState(GameState.Begin);
     if (this.gameService.getAudio()) {
       this.clickSound.play();
     }
@@ -253,6 +259,7 @@ displayExitDialog(): void {
 }
 
 exitButton() {
+  this.gameService.setGameState(GameState.Begin);
   if (this.gameService.getAudio()) {
     this.clickSound.play();
   }
