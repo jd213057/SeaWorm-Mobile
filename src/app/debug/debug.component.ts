@@ -63,20 +63,21 @@ export class DebugComponent implements OnInit {
     }
 
     onSubmit() {
+      const finalInput = this.checkoutForm.value.inputValue.toUpperCase() ;
       if (this.gameService.getAudio()) {
         this.clickSound.play();
       }
-      if (this.checkoutForm.value.inputValue == this.code1) {
+      if (finalInput === this.code1) {
 this.gameService.setCode1(true);
 this.gameService.setCode3(false);
 localStorage.setItem('YOUAREDEAD', 'true');
 localStorage.setItem('NOBULLSHIT', 'false');
-} else if (this.checkoutForm.value.inputValue == this.code2) {
+} else if (finalInput === this.code2) {
   this.gameService.setCode2(true);
   this.gameService.setCode3(false);
   localStorage.setItem('AGAINSTALLODDS', 'true');
   localStorage.setItem('NOBULLSHIT', 'false');
-} else if (this.checkoutForm.value.inputValue == this.code3) {
+} else if (finalInput === this.code3) {
   this.gameService.setCode3(true);
   this.gameService.setCode1(false);
   this.gameService.setCode2(false);

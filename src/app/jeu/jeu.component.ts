@@ -230,10 +230,10 @@ for (let x = 0; x <= 9; x++) {
     positionY = Math.round(Math.random() * 9);
     const idToCheck = positionY.toString() + '-' + positionX.toString();
     for (const pixel of this.seaWorm.getCases()) {
-        if (pixel.getId() == idToCheck) {
+        if (pixel.getId() === idToCheck) {
           restart = true;
         }
-    }} while (restart == true);
+    }} while (restart === true);
     this.food.getCase().setPositionX(positionX);
     this.food.getCase().setPositionY(positionY);
   }
@@ -248,18 +248,18 @@ for (let x = 0; x <= 9; x++) {
     positionY = Math.round(Math.random() * 9);
     const idToCheck = positionY.toString() + '-' + positionX.toString();
     for (const pixel of this.seaWorm.getCases()) {
-        if (pixel.getId() == idToCheck) {
+        if (pixel.getId() === idToCheck) {
           restart = true;
         }
-        if (idToCheck == this.food.getCase().getId()) {
+        if (idToCheck === this.food.getCase().getId()) {
           restart = true;
         }
-        if (idToCheck == this.poison1.getCase().getId() ||
-         idToCheck == this.poison2.getCase().getId() ||
-          idToCheck == this.poison3.getCase().getId() ) {
+        if (idToCheck === this.poison1.getCase().getId() ||
+         idToCheck === this.poison2.getCase().getId() ||
+          idToCheck === this.poison3.getCase().getId() ) {
           restart = true;
         }
-    }} while (restart == true);
+    }} while (restart === true);
     return new Case(State.poison, positionX, positionY);
   }
 
@@ -273,6 +273,7 @@ for (let x = 0; x <= 9; x++) {
   }
 
   runGameCycle(): void {
+    console.log(this.food.getCount());
     this.isBitten = this.checkBites();
     if (this.isBitten === false) {
    this.moveWorm(this.seaWorm);
@@ -313,15 +314,15 @@ for (let x = 0; x <= 9; x++) {
 case TYPE.yellowgreen:
 this.increaseWormSpeed();
 this.growWorm();
-if (!this.gameService.getCode1()) {
-  this.food.setCount(this.food.getCount() + 1);
-}
+this.food.setCount(this.food.getCount() + 1);
 break;
 case TYPE.red:
   this.wormSpeed += 2;
   this.shrinkWorm();
   if (!this.gameService.getCode1()) {
     this.food.setCount(this.food.getCount() + 2);
+  } else {
+    this.food.setCount(this.food.getCount() + 1);
   }
   break;
   case TYPE.green:
