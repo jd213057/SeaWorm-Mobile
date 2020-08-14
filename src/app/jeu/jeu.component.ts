@@ -325,7 +325,7 @@ case TYPE.red:
     this.food.setCount(this.food.getCount() + 1);
   }
   break;
-  case TYPE.green:
+case TYPE.green:
     if (this.gameService.getLevel() === 225 || this.gameService.getLevel() === 300) {
       this.wormSpeed = this.gameService.getLevel();
     } else if (this.gameService.getLevel() === 150) {
@@ -339,7 +339,7 @@ case TYPE.red:
     this.food.setCount(this.food.getCount() + 102);
   }
     break;
-  case TYPE.orange:
+case TYPE.orange:
     if (this.gameService.getLevel() === 300) {
       this.wormSpeed = this.gameService.getLevel();
     } else {
@@ -348,14 +348,14 @@ case TYPE.red:
     this.food.setType(TYPE.yellowgreen);
     this.food.setCount(this.food.getCount() + 1);
     break;
-  case TYPE.purple:
+case TYPE.purple:
     this.wormSpeed += 3;
     this.mediumShrinkWorm();
     this.food.setCount(this.food.getCount() + 3);
     this.removePoisons();
     this.food.setType(TYPE.yellowgreen);
     break;
-    case TYPE.darkblue:
+case TYPE.darkblue:
       this.wormSpeed += 3;
       if (this.foodTimer != null || this.foodTimer != undefined) {
         clearTimeout(this.foodTimer);
