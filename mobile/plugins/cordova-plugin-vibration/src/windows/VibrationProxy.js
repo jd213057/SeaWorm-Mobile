@@ -21,25 +21,33 @@
 
 /* global Windows, WinJS, Vibration */
 
-function checkReqs (actionName, fail) {
-    if (!(Windows.Phone && Windows.Phone.Devices && Windows.Phone.Devices.Notification && Windows.Phone.Devices.Notification.VibrationDevice) && WinJS.Utilities.isPhone !== true) {
-        fail(actionName + ' is unsupported by this platform.');
-        return false;
+function checkReqs(actionName, fail) {
+    if (
+        !(
+            Windows.Phone &&
+            Windows.Phone.Devices &&
+            Windows.Phone.Devices.Notification &&
+            Windows.Phone.Devices.Notification.VibrationDevice
+        ) &&
+        WinJS.Utilities.isPhone !== true
+    ) {
+        fail(actionName + ' is unsupported by this platform.')
+        return false
     }
 
-    return true;
+    return true
 }
 
-function tryDoAction (actionName, success, fail, args, action) {
+function tryDoAction(actionName, success, fail, args, action) {
     try {
         if (checkReqs(actionName, fail) !== true) {
-            return;
+            return
         }
 
-        action(args);
-        success();
+        action(args)
+        success()
     } catch (e) {
-        fail('Error occured while trying to ' + actionName + ': ' + e);
+        fail('Error occured while trying to ' + actionName + ': ' + e)
     }
 }
 
@@ -56,25 +64,25 @@ function tryDoAction (actionName, success, fail, args, action) {
  * @param  {Array} pattern Array of delays
  * @returns {patternParsingResult} result
  */
-function tryParsePatternValues (pattern) {
-    var passed = true;
-    var failedItem;
+function tryParsePatternValues(pattern) {
+    var passed = true
+    var failedItem
 
     pattern = pattern.map(function (item) {
-        var num = parseInt(item, 10);
+        var num = parseInt(item, 10)
         if (isNaN(num)) {
-            failedItem = item;
-            passed = false;
+            failedItem = item
+            passed = false
         }
 
-        return num;
-    });
+        return num
+    })
 
     return {
         parsed: pattern,
         passed: passed,
-        failedItem: failedItem
-    };
+        failedItem: failedItem,
+    }
 }
 
 /**
@@ -88,33 +96,36 @@ function tryParsePatternValues (pattern) {
  * Checks params for vibrateWithPattern function
  * @return {checkPatternReqsResult}
  */
-function checkPatternReqs (args, fail) {
-    var patternParsingResult = tryParsePatternValues(args[0]);
-    var repeat = args[1];
-    var passed = true;
-    var errMsg = '';
+function checkPatternReqs(args, fail) {
+    var patternParsingResult = tryParsePatternValues(args[0])
+    var repeat = args[1]
+    var passed = true
+    var errMsg = ''
 
     if (!patternParsingResult.passed) {
-        errMsg += 'Could not parse ' + patternParsingResult.failedItem + ' in the vibration pattern';
-        passed = false;
+        errMsg +=
+            'Could not parse ' +
+            patternParsingResult.failedItem +
+            ' in the vibration pattern'
+        passed = false
     }
 
     if (repeat !== -1 && (repeat < 0 || repeat > args[0].length - 1)) {
-        errMsg += '\nrepeat parameter is out of range: ' + repeat;
-        passed = false;
+        errMsg += '\nrepeat parameter is out of range: ' + repeat
+        passed = false
     }
 
     if (!passed) {
-        console.error(errMsg);
+        console.error(errMsg)
         if (fail) {
-            fail(errMsg);
+            fail(errMsg)
         }
     }
 
     return {
         passed: passed,
-        patternParsingResult: patternParsingResult
-    };
+        patternParsingResult: patternParsingResult,
+    }
 }
 
 /**
@@ -125,129 +136,175 @@ function checkPatternReqs (args, fail) {
  * @param  {Array} patternCycle Cycled part of the pattern array
  * @return {Promise} Promise chaining single vibrate/pause actions
  */
-function vibratePattern (patternArr, shouldRepeat, fail, patternCycle) {
+function vibratePattern(patternArr, shouldRepeat, fail, patternCycle) {
     return patternArr.reduce(function (previousValue, currentValue, index) {
         if (index % 2 === 0) {
             return previousValue.then(function () {
-                module.exports.vibrate(function () { }, function (err) {
-                    console.error(err);
-                    if (fail) {
-                        fail(err);
-                    }
-                }, [currentValue]);
+                module.exports.vibrate(
+                    function () {},
+                    function (err) {
+                        console.error(err)
+                        if (fail) {
+                            fail(err)
+                        }
+                    },
+                    [currentValue]
+                )
 
                 if (index === patternArr.length - 1 && shouldRepeat) {
-                    return WinJS.Promise.timeout(currentValue).then(function () {
-                        return vibratePattern(patternCycle, true, fail, patternCycle);
-                    });
+                    return WinJS.Promise.timeout(currentValue).then(
+                        function () {
+                            return vibratePattern(
+                                patternCycle,
+                                true,
+                                fail,
+                                patternCycle
+                            )
+                        }
+                    )
                 } else {
-                    return WinJS.Promise.timeout(currentValue);
+                    return WinJS.Promise.timeout(currentValue)
                 }
-            });
+            })
         } else {
             return previousValue.then(function () {
                 if (index === patternArr.length - 1 && shouldRepeat) {
-                    return WinJS.Promise.timeout(currentValue).then(function () {
-                        return vibratePattern(patternCycle, true, fail, patternCycle);
-                    });
+                    return WinJS.Promise.timeout(currentValue).then(
+                        function () {
+                            return vibratePattern(
+                                patternCycle,
+                                true,
+                                fail,
+                                patternCycle
+                            )
+                        }
+                    )
                 } else {
-                    return WinJS.Promise.timeout(currentValue);
+                    return WinJS.Promise.timeout(currentValue)
                 }
-            });
+            })
         }
-    }, WinJS.Promise.as());
+    }, WinJS.Promise.as())
 }
 
-var DEFAULT_DURATION = 200;
-var patternChainPromise;
+var DEFAULT_DURATION = 200
+var patternChainPromise
 
-var VibrationDevice = (Windows.Phone && Windows.Phone.Devices && Windows.Phone.Devices.Notification && Windows.Phone.Devices.Notification.VibrationDevice && Windows.Phone.Devices.Notification.VibrationDevice);
+var VibrationDevice =
+    Windows.Phone &&
+    Windows.Phone.Devices &&
+    Windows.Phone.Devices.Notification &&
+    Windows.Phone.Devices.Notification.VibrationDevice &&
+    Windows.Phone.Devices.Notification.VibrationDevice
 if (VibrationDevice) {
     // Windows Phone 10 code paths
     module.exports = {
         vibrate: function (success, fail, args) {
             try {
-                var duration = parseInt(args[0]);
+                var duration = parseInt(args[0])
                 if (isNaN(duration)) {
-                    duration = DEFAULT_DURATION;
+                    duration = DEFAULT_DURATION
                 }
-                VibrationDevice.getDefault().vibrate(duration);
-                success();
+                VibrationDevice.getDefault().vibrate(duration)
+                success()
             } catch (e) {
-                fail(e);
+                fail(e)
             }
         },
         vibrateWithPattern: function (success, fail, args) {
             // Cancel current vibrations first
             module.exports.cancelVibration(function () {
-                var checkReqsResult = checkPatternReqs(args, fail);
+                var checkReqsResult = checkPatternReqs(args, fail)
                 if (!checkReqsResult.passed) {
-                    return;
+                    return
                 }
 
-                var pattern = checkReqsResult.patternParsingResult.parsed;
-                var repeatFromIndex = args[1];
-                var shouldRepeat = (repeatFromIndex !== -1);
-                var patternCycle;
+                var pattern = checkReqsResult.patternParsingResult.parsed
+                var repeatFromIndex = args[1]
+                var shouldRepeat = repeatFromIndex !== -1
+                var patternCycle
 
                 if (shouldRepeat) {
-                    patternCycle = pattern.slice(repeatFromIndex);
+                    patternCycle = pattern.slice(repeatFromIndex)
                 }
 
-                patternChainPromise = vibratePattern(pattern, shouldRepeat, fail, patternCycle);
-            }, fail);
+                patternChainPromise = vibratePattern(
+                    pattern,
+                    shouldRepeat,
+                    fail,
+                    patternCycle
+                )
+            }, fail)
         },
         cancelVibration: function (success, fail, args) {
             try {
                 if (patternChainPromise) {
-                    patternChainPromise.cancel();
+                    patternChainPromise.cancel()
                 }
-                VibrationDevice.getDefault().cancel();
+                VibrationDevice.getDefault().cancel()
                 if (success) {
-                    success();
+                    success()
                 }
             } catch (e) {
                 if (fail) {
-                    fail(e);
+                    fail(e)
                 }
             }
-        }
-    };
+        },
+    }
 } else if (typeof Vibration !== 'undefined' && Vibration.Vibration) {
     // Windows Phone 8.1 code paths
     module.exports = {
         vibrate: function (success, fail, args) {
-            tryDoAction('vibrate', success, fail, args, Vibration.Vibration.vibrate);
+            tryDoAction(
+                'vibrate',
+                success,
+                fail,
+                args,
+                Vibration.Vibration.vibrate
+            )
         },
 
         vibrateWithPattern: function (success, fail, args) {
-            tryDoAction('vibrate', success, fail, [DEFAULT_DURATION], Vibration.Vibration.vibrate);
+            tryDoAction(
+                'vibrate',
+                success,
+                fail,
+                [DEFAULT_DURATION],
+                Vibration.Vibration.vibrate
+            )
         },
 
         cancelVibration: function (success, fail, args) {
-            tryDoAction('cancelVibration', success, fail, args, Vibration.Vibration.cancelVibration);
-        }
-    };
+            tryDoAction(
+                'cancelVibration',
+                success,
+                fail,
+                args,
+                Vibration.Vibration.cancelVibration
+            )
+        },
+    }
 } else {
     // code paths where no vibration mechanism is present
     module.exports = {
         vibrate: function (success, fail) {
             if (fail) {
-                fail('"vibrate" is unsupported by this device.');
+                fail('"vibrate" is unsupported by this device.')
             }
         },
         vibrateWithPattern: function (success, fail, args) {
             if (fail) {
-                fail('"vibrateWithPattern" is unsupported by this device.');
+                fail('"vibrateWithPattern" is unsupported by this device.')
             }
         },
 
         cancelVibration: function (success, fail, args) {
             if (success) {
-                success();
+                success()
             }
-        }
-    };
+        },
+    }
 }
 
-require('cordova/exec/proxy').add('Vibration', module.exports);
+require('cordova/exec/proxy').add('Vibration', module.exports)

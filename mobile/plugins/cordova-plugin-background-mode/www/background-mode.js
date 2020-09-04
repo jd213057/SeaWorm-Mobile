@@ -19,8 +19,8 @@
     under the License.
 */
 
-var exec    = require('cordova/exec'),
-    channel = require('cordova/channel');
+var exec = require('cordova/exec'),
+    channel = require('cordova/channel')
 
 /**
  * Activates the background mode. When activated the application
@@ -29,18 +29,16 @@ var exec    = require('cordova/exec'),
  *
  * @return [ Void ]
  */
-exports.enable = function()
-{
-    if (this.isEnabled())
-        return;
+exports.enable = function () {
+    if (this.isEnabled()) return
 
-    var fn = function() {
-        exports._isEnabled = true;
-        exports.fireEvent('enable');
-    };
+    var fn = function () {
+        exports._isEnabled = true
+        exports.fireEvent('enable')
+    }
 
-    cordova.exec(fn, null, 'BackgroundMode', 'enable', []);
-};
+    cordova.exec(fn, null, 'BackgroundMode', 'enable', [])
+}
 
 /**
  * Deactivates the background mode. When deactivated the application
@@ -48,18 +46,16 @@ exports.enable = function()
  *
  * @return [ Void ]
  */
-exports.disable = function()
-{
-    if (!this.isEnabled())
-        return;
+exports.disable = function () {
+    if (!this.isEnabled()) return
 
-    var fn = function() {
-        exports._isEnabled = false;
-        exports.fireEvent('disable');
-    };
+    var fn = function () {
+        exports._isEnabled = false
+        exports.fireEvent('disable')
+    }
 
-    cordova.exec(fn, null, 'BackgroundMode', 'disable', []);
-};
+    cordova.exec(fn, null, 'BackgroundMode', 'disable', [])
+}
 
 /**
  * Enable or disable the background mode.
@@ -68,34 +64,31 @@ exports.disable = function()
  *
  * @return [ Void ]
  */
-exports.setEnabled = function (enable)
-{
+exports.setEnabled = function (enable) {
     if (enable) {
-        this.enable();
+        this.enable()
     } else {
-        this.disable();
+        this.disable()
     }
-};
+}
 
 /**
  * List of all available options with their default value.
  *
  * @return [ Object ]
  */
-exports.getDefaults = function()
-{
-    return this._defaults;
-};
+exports.getDefaults = function () {
+    return this._defaults
+}
 
 /**
  * The actual applied settings.
  *
  * @return [ Object ]
  */
-exports.getSettings = function()
-{
-    return this._settings || {};
-};
+exports.getSettings = function () {
+    return this._settings || {}
+}
 
 /**
  * Overwrite the default settings.
@@ -104,23 +97,22 @@ exports.getSettings = function()
  *
  * @return [ Void ]
  */
-exports.setDefaults = function (overrides)
-{
-    var defaults = this.getDefaults();
+exports.setDefaults = function (overrides) {
+    var defaults = this.getDefaults()
 
-    for (var key in defaults)
-    {
-        if (overrides.hasOwnProperty(key))
-        {
-            defaults[key] = overrides[key];
+    for (var key in defaults) {
+        if (overrides.hasOwnProperty(key)) {
+            defaults[key] = overrides[key]
         }
     }
 
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundMode', 'configure', [defaults, false]);
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundMode', 'configure', [
+            defaults,
+            false,
+        ])
     }
-};
+}
 
 /**
  * Configures the notification settings for Android.
@@ -130,52 +122,45 @@ exports.setDefaults = function (overrides)
  *
  * @return [ Void ]
  */
-exports.configure = function (options)
-{
+exports.configure = function (options) {
     var settings = this.getSettings(),
-        defaults = this.getDefaults();
+        defaults = this.getDefaults()
 
-    if (!this._isAndroid)
-        return;
+    if (!this._isAndroid) return
 
-    if (!this._isActive)
-    {
-        console.log('BackgroundMode is not active, skipped...');
-        return;
+    if (!this._isActive) {
+        console.log('BackgroundMode is not active, skipped...')
+        return
     }
 
-    this._mergeObjects(options, settings);
-    this._mergeObjects(options, defaults);
-    this._settings = options;
+    this._mergeObjects(options, settings)
+    this._mergeObjects(options, defaults)
+    this._settings = options
 
-    cordova.exec(null, null, 'BackgroundMode', 'configure', [options, true]);
-};
+    cordova.exec(null, null, 'BackgroundMode', 'configure', [options, true])
+}
 
 /**
  * Enable GPS-tracking in background (Android).
  *
  * @return [ Void ]
  */
-exports.disableWebViewOptimizations = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'webview', []);
+exports.disableWebViewOptimizations = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'webview', [])
     }
-};
+}
 
 /**
  * Disables battery optimazation mode for the app.
  *
  * @return [ Void ]
  */
-exports.disableBatteryOptimizations = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'battery', []);
+exports.disableBatteryOptimizations = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'battery', [])
     }
-};
+}
 
 /**
  * Opens the system settings dialog where the user can tweak or turn off any
@@ -186,52 +171,44 @@ exports.disableBatteryOptimizations = function()
  *
  * @return [ Void ]
  */
-exports.openAppStartSettings = function (options)
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'appstart', [options]);
+exports.openAppStartSettings = function (options) {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'appstart', [options])
     }
-};
+}
 
 /**
  * Move app to background (Android only).
  *
  * @return [ Void ]
  */
-exports.moveToBackground = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'background', []);
+exports.moveToBackground = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'background', [])
     }
-};
+}
 
 /**
  * Move app to foreground when in background (Android only).
  *
  * @return [ Void ]
  */
-exports.moveToForeground = function()
-{
-    if (this.isActive() && this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'foreground', []);
+exports.moveToForeground = function () {
+    if (this.isActive() && this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'foreground', [])
     }
-};
+}
 
 /**
  * Exclude the app from the recent tasks list (Android only).
  *
  * @return [ Void ]
  */
-exports.excludeFromTaskList = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'tasklist', []);
+exports.excludeFromTaskList = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'tasklist', [])
     }
-};
+}
 
 /**
  * Override the back button on Android to go to background
@@ -239,12 +216,15 @@ exports.excludeFromTaskList = function()
  *
  * @return [ Void ]
  */
-exports.overrideBackButton = function()
-{
-    document.addEventListener('backbutton', function() {
-        exports.moveToBackground();
-    }, false);
-};
+exports.overrideBackButton = function () {
+    document.addEventListener(
+        'backbutton',
+        function () {
+            exports.moveToBackground()
+        },
+        false
+    )
+}
 
 /**
  * If the screen is off.
@@ -253,65 +233,55 @@ exports.overrideBackButton = function()
  *
  * @return [ Void ]
  */
-exports.isScreenOff = function (fn)
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(fn, null, 'BackgroundModeExt', 'dimmed', []);
+exports.isScreenOff = function (fn) {
+    if (this._isAndroid) {
+        cordova.exec(fn, null, 'BackgroundModeExt', 'dimmed', [])
+    } else {
+        fn(undefined)
     }
-    else
-    {
-        fn(undefined);
-    }
-};
+}
 
 /**
  * Wake up the device.
  *
  * @return [ Void ]
  */
-exports.wakeUp = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'wakeup', []);
+exports.wakeUp = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'wakeup', [])
     }
-};
+}
 
 /**
  * Wake up and unlock the device.
  *
  * @return [ Void ]
  */
-exports.unlock = function()
-{
-    if (this._isAndroid)
-    {
-        cordova.exec(null, null, 'BackgroundModeExt', 'unlock', []);
+exports.unlock = function () {
+    if (this._isAndroid) {
+        cordova.exec(null, null, 'BackgroundModeExt', 'unlock', [])
     }
-};
+}
 
 /**
  * If the mode is enabled or disabled.
  *
  * @return [ Boolean ]
  */
-exports.isEnabled = function()
-{
-    return this._isEnabled !== false;
-};
+exports.isEnabled = function () {
+    return this._isEnabled !== false
+}
 
 /**
  * If the mode is active.
  *
  * @return [ Boolean ]
  */
-exports.isActive = function()
-{
-    return this._isActive !== false;
-};
+exports.isActive = function () {
+    return this._isActive !== false
+}
 
-exports._listener = {};
+exports._listener = {}
 
 /**
  * Fire event with given arguments.
@@ -321,22 +291,19 @@ exports._listener = {};
  *
  * @return [ Void ]
  */
-exports.fireEvent = function (event)
-{
-    var args     = Array.apply(null, arguments).slice(1),
-        listener = this._listener[event];
+exports.fireEvent = function (event) {
+    var args = Array.apply(null, arguments).slice(1),
+        listener = this._listener[event]
 
-    if (!listener)
-        return;
+    if (!listener) return
 
-    for (var i = 0; i < listener.length; i++)
-    {
-        var fn    = listener[i][0],
-            scope = listener[i][1];
+    for (var i = 0; i < listener.length; i++) {
+        var fn = listener[i][0],
+            scope = listener[i][1]
 
-        fn.apply(scope, args);
+        fn.apply(scope, args)
     }
-};
+}
 
 /**
  * Register callback for given event.
@@ -347,20 +314,17 @@ exports.fireEvent = function (event)
  *
  * @return [ Void ]
  */
-exports.on = function (event, callback, scope)
-{
-    if (typeof callback !== "function")
-        return;
+exports.on = function (event, callback, scope) {
+    if (typeof callback !== 'function') return
 
-    if (!this._listener[event])
-    {
-        this._listener[event] = [];
+    if (!this._listener[event]) {
+        this._listener[event] = []
     }
 
-    var item = [callback, scope || window];
+    var item = [callback, scope || window]
 
-    this._listener[event].push(item);
-};
+    this._listener[event].push(item)
+}
 
 /**
  * Unregister callback for given event.
@@ -370,55 +334,50 @@ exports.on = function (event, callback, scope)
  *
  * @return [ Void ]
  */
-exports.un = function (event, callback)
-{
-    var listener = this._listener[event];
+exports.un = function (event, callback) {
+    var listener = this._listener[event]
 
-    if (!listener)
-        return;
+    if (!listener) return
 
-    for (var i = 0; i < listener.length; i++)
-    {
-        var fn = listener[i][0];
+    for (var i = 0; i < listener.length; i++) {
+        var fn = listener[i][0]
 
-        if (fn == callback)
-        {
-            listener.splice(i, 1);
-            break;
+        if (fn == callback) {
+            listener.splice(i, 1)
+            break
         }
     }
-};
+}
 
 /**
  * @private
  *
  * Flag indicates if the mode is enabled.
  */
-exports._isEnabled = false;
+exports._isEnabled = false
 
 /**
  * @private
  *
  * Flag indicates if the mode is active.
  */
-exports._isActive = false;
+exports._isActive = false
 
 /**
  * @private
  *
  * Default values of all available options.
  */
-exports._defaults =
-{
-    title:   'App is running in background',
-    text:    'Doing heavy tasks.',
+exports._defaults = {
+    title: 'App is running in background',
+    text: 'Doing heavy tasks.',
     bigText: false,
-    resume:  true,
-    silent:  false,
-    hidden:  true,
-    color:   undefined,
-    icon:    'icon'
-};
+    resume: true,
+    silent: false,
+    hidden: true,
+    color: undefined,
+    icon: 'icon',
+}
 
 /**
  * @private
@@ -430,19 +389,16 @@ exports._defaults =
  *
  * @return [ Object ] Default values merged with custom values.
  */
-exports._mergeObjects = function (options, toMergeIn)
-{
-    for (var key in toMergeIn)
-    {
-        if (!options.hasOwnProperty(key))
-        {
-            options[key] = toMergeIn[key];
-            continue;
+exports._mergeObjects = function (options, toMergeIn) {
+    for (var key in toMergeIn) {
+        if (!options.hasOwnProperty(key)) {
+            options[key] = toMergeIn[key]
+            continue
         }
     }
 
-    return options;
-};
+    return options
+}
 
 /**
  * @private
@@ -454,14 +410,12 @@ exports._mergeObjects = function (options, toMergeIn)
  *
  * @return [ Void ]
  */
-exports._setActive = function(value)
-{
-    if (this._isActive == value)
-        return;
+exports._setActive = function (value) {
+    if (this._isActive == value) return
 
-    this._isActive = value;
-    this._settings = value ? this._mergeObjects({}, this._defaults) : {};
-};
+    this._isActive = value
+    this._settings = value ? this._mergeObjects({}, this._defaults) : {}
+}
 
 /**
  * @private
@@ -473,38 +427,32 @@ exports._setActive = function(value)
  *
  * @return [ Void ]
  */
-exports._pluginInitialize = function()
-{
-    this._isAndroid = device.platform.match(/^android|amazon/i) !== null;
-    this.setDefaults({});
+exports._pluginInitialize = function () {
+    this._isAndroid = device.platform.match(/^android|amazon/i) !== null
+    this.setDefaults({})
 
-    if (device.platform == 'browser')
-    {
-        this.enable();
-        this._isEnabled = true;
+    if (device.platform == 'browser') {
+        this.enable()
+        this._isEnabled = true
     }
 
-    this._isActive  = this._isActive || device.platform == 'browser';
-};
+    this._isActive = this._isActive || device.platform == 'browser'
+}
 
 // Called before 'deviceready' listener will be called
-channel.onCordovaReady.subscribe(function()
-{
-    channel.onCordovaInfoReady.subscribe(function() {
-        exports._pluginInitialize();
-    });
-});
+channel.onCordovaReady.subscribe(function () {
+    channel.onCordovaInfoReady.subscribe(function () {
+        exports._pluginInitialize()
+    })
+})
 
 // Called after 'deviceready' event
-channel.deviceready.subscribe(function()
-{
-    if (exports.isEnabled())
-    {
-        exports.fireEvent('enable');
+channel.deviceready.subscribe(function () {
+    if (exports.isEnabled()) {
+        exports.fireEvent('enable')
     }
 
-    if (exports.isActive())
-    {
-        exports.fireEvent('activate');
+    if (exports.isActive()) {
+        exports.fireEvent('activate')
     }
-});
+})

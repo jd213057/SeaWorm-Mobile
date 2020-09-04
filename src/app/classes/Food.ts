@@ -1,46 +1,46 @@
 import { Case } from './Case';
 
 export class Food {
-  case: Case;
-  count: number;
-  type: TYPE;
+    case: Case;
+    count: number;
+    type: TYPE;
 
-  constructor(caseFood: Case) {
-this.case =  caseFood;
-this.count = 0;
-this.type = TYPE.yellowgreen;
-  }
+    constructor(caseFood: Case) {
+        this.case = caseFood;
+        this.count = 0;
+        this.type = TYPE.yellowgreen;
+    }
 
-  getCase(): Case {
-    return this.case;
-  }
+    getCase(): Case {
+        return this.case;
+    }
 
-  setCase(caseFood: Case): void {
-    this.case = caseFood;
-  }
+    setCase(caseFood: Case): void {
+        this.case = caseFood;
+    }
 
-  getCount(): number {
-    return this.count;
-  }
+    getCount(): number {
+        return this.count;
+    }
 
-  setCount(countFood) {
-    this.count = countFood;
-  }
+    setCount(countFood) {
+        this.count = countFood;
+    }
 
-  getType(): TYPE {
-    return this.type;
-  }
+    getType(): TYPE {
+        return this.type;
+    }
 
-  setType(type: TYPE): void {
-    this.type = type;
-  }
+    setType(type: TYPE): void {
+        this.type = type;
+    }
 }
 
-export  enum TYPE {
-'yellowgreen',
-'red',
-'purple',
-'green',
-'orange',
-'darkblue'
+export enum TYPE {
+    'yellowgreen',
+    'red',
+    'purple',
+    'green',
+    'orange',
+    'darkblue',
 }

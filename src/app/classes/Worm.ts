@@ -1,34 +1,34 @@
 import { Case } from './Case';
 
 export class Worm {
-  cases: Case[];
-  direction: Direction;
+    cases: Case[];
+    direction: Direction;
 
-  constructor(worm: Case[]) {
-    this.cases = worm;
-    this.direction = Direction.droite;
-  }
+    constructor(worm: Case[]) {
+        this.cases = worm;
+        this.direction = Direction.droite;
+    }
 
-  getCases(): Case[] {
-    return this.cases;
-  }
+    getCases(): Case[] {
+        return this.cases;
+    }
 
-  setCases(worm: Case[]): void {
-  this.cases = worm;
-  }
+    setCases(worm: Case[]): void {
+        this.cases = worm;
+    }
 
-  getDirection(): Direction {
-    return this.direction.valueOf();
-  }
+    getDirection(): Direction {
+        return this.direction.valueOf();
+    }
 
-  setDirection(directionWorm): void {
-    this.direction = directionWorm;
-  }
+    setDirection(directionWorm): void {
+        this.direction = directionWorm;
+    }
 }
 
 export enum Direction {
-  'haut',
-  'bas',
-  'gauche',
-  'droite'
+    'haut',
+    'bas',
+    'gauche',
+    'droite',
 }

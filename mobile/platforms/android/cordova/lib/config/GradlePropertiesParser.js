@@ -17,18 +17,18 @@
     under the License.
 */
 
-let fs = require('fs');
-let path = require('path');
-let propertiesParser = require('properties-parser');
-let events = require('cordova-common').events;
+let fs = require('fs')
+let path = require('path')
+let propertiesParser = require('properties-parser')
+let events = require('cordova-common').events
 
 class GradlePropertiesParser {
     /**
-    * Loads and Edits Gradle Properties File.
-    *
-    * @param {String} platformDir is the path of the Android platform directory
-    */
-    constructor (platformDir) {
+     * Loads and Edits Gradle Properties File.
+     *
+     * @param {String} platformDir is the path of the Android platform directory
+     */
+    constructor(platformDir) {
         this._defaults = {
             // 10 seconds -> 6 seconds
             'org.gradle.daemon': 'true',
@@ -37,78 +37,99 @@ class GradlePropertiesParser {
             'org.gradle.jvmargs': '-Xmx2048m',
 
             // allow NDK to be used - required by Gradle 1.5 plugin
-            'android.useDeprecatedNdk': 'true'
+            'android.useDeprecatedNdk': 'true',
 
             // Shaves another 100ms, but produces a "try at own risk" warning. Not worth it (yet):
             // 'org.gradle.parallel': 'true'
-        };
+        }
 
-        this.gradleFilePath = path.join(platformDir, 'gradle.properties');
+        this.gradleFilePath = path.join(platformDir, 'gradle.properties')
     }
 
-    configure (userConfigs) {
-        events.emit('verbose', '[Gradle Properties] Preparing Configuration');
+    configure(userConfigs) {
+        events.emit('verbose', '[Gradle Properties] Preparing Configuration')
 
-        this._initializeEditor();
+        this._initializeEditor()
 
-        events.emit('verbose', '[Gradle Properties] Appending default configuration properties');
-        this._configureProperties(this._defaults);
+        events.emit(
+            'verbose',
+            '[Gradle Properties] Appending default configuration properties'
+        )
+        this._configureProperties(this._defaults)
 
-        events.emit('verbose', '[Gradle Properties] Appending custom configuration properties');
-        this._configureProperties(userConfigs);
+        events.emit(
+            'verbose',
+            '[Gradle Properties] Appending custom configuration properties'
+        )
+        this._configureProperties(userConfigs)
 
-        this._save();
+        this._save()
     }
 
     /**
      * Initialize the properties editor for parsing, setting, etc.
      */
-    _initializeEditor () {
+    _initializeEditor() {
         // Touch empty gradle.properties file if missing.
         if (!fs.existsSync(this.gradleFilePath)) {
-            events.emit('verbose', '[Gradle Properties] File missing, creating file with Cordova defaults.');
-            fs.writeFileSync(this.gradleFilePath, '', 'utf-8');
+            events.emit(
+                'verbose',
+                '[Gradle Properties] File missing, creating file with Cordova defaults.'
+            )
+            fs.writeFileSync(this.gradleFilePath, '', 'utf-8')
         }
 
         // Create an editor for parsing, getting, and setting configurations.
-        this.gradleFile = propertiesParser.createEditor(this.gradleFilePath);
+        this.gradleFile = propertiesParser.createEditor(this.gradleFilePath)
     }
 
     /**
      * Validate that defaults or user configuration properties are set and
      * set the missing items.
      */
-    _configureProperties (properties) {
+    _configureProperties(properties) {
         // Iterate though the properties and set only if missing.
-        Object.keys(properties).forEach(key => {
-            let value = this.gradleFile.get(key);
+        Object.keys(properties).forEach((key) => {
+            let value = this.gradleFile.get(key)
 
             if (!value) {
                 // Handles the case of adding missing defaults or new properties that are missing.
-                events.emit('verbose', `[Gradle Properties] Appending configuration item: ${key}=${properties[key]}`);
-                this.gradleFile.set(key, properties[key]);
+                events.emit(
+                    'verbose',
+                    `[Gradle Properties] Appending configuration item: ${key}=${properties[key]}`
+                )
+                this.gradleFile.set(key, properties[key])
             } else if (value !== properties[key]) {
-                if (this._defaults[key] && this._defaults[key] !== properties[key]) {
+                if (
+                    this._defaults[key] &&
+                    this._defaults[key] !== properties[key]
+                ) {
                     // Since the value does not match default, we will notify the discrepancy with Cordova's recommended value.
-                    events.emit('info', `[Gradle Properties] Detected Gradle property "${key}" with the value of "${properties[key]}", Cordova's recommended value is "${this._defaults[key]}"`);
+                    events.emit(
+                        'info',
+                        `[Gradle Properties] Detected Gradle property "${key}" with the value of "${properties[key]}", Cordova's recommended value is "${this._defaults[key]}"`
+                    )
                 } else {
                     // When the current value exists but does not match the new value or does matches the default key value, the new value it set.
-                    events.emit('verbose', `[Gradle Properties] Updating Gradle property "${key}" with the value of "${properties[key]}"`);
+                    events.emit(
+                        'verbose',
+                        `[Gradle Properties] Updating Gradle property "${key}" with the value of "${properties[key]}"`
+                    )
                 }
 
                 // We will set the new value in either case.
-                this.gradleFile.set(key, properties[key]);
+                this.gradleFile.set(key, properties[key])
             }
-        });
+        })
     }
 
     /**
      * Saves any changes that has been made to the properties file.
      */
-    _save () {
-        events.emit('verbose', '[Gradle Properties] Updating and Saving File');
-        this.gradleFile.save();
+    _save() {
+        events.emit('verbose', '[Gradle Properties] Updating and Saving File')
+        this.gradleFile.save()
     }
 }
 
-module.exports = GradlePropertiesParser;
+module.exports = GradlePropertiesParser

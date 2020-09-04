@@ -17,16 +17,15 @@
  * specific language governing permissions and limitations
  * under the License.
  *
-*/
+ */
 
-var exec = require('cordova/exec');
+var exec = require('cordova/exec')
 
 /**
  * Provides access to the vibration mechanism on the device.
  */
 
 module.exports = {
-
     /**
      * Vibrates the device for a given amount of time or for a given pattern or immediately cancels any ongoing vibrations (depending on the parameter).
      *
@@ -54,28 +53,30 @@ module.exports = {
         /* Aligning with w3c spec */
 
         // vibrate
-        if ((typeof param === 'number') && param !== 0) {
-            exec(null, null, 'Vibration', 'vibrate', [param]);
+        if (typeof param === 'number' && param !== 0) {
+            exec(null, null, 'Vibration', 'vibrate', [param])
 
-        // vibrate with array ( i.e. vibrate([3000]) )
-        } else if ((typeof param === 'object') && param.length === 1) {
+            // vibrate with array ( i.e. vibrate([3000]) )
+        } else if (typeof param === 'object' && param.length === 1) {
             // cancel if vibrate([0])
             if (param[0] === 0) {
-                exec(null, null, 'Vibration', 'cancelVibration', []);
+                exec(null, null, 'Vibration', 'cancelVibration', [])
 
-            // else vibrate
+                // else vibrate
             } else {
-                exec(null, null, 'Vibration', 'vibrate', [param[0]]);
+                exec(null, null, 'Vibration', 'vibrate', [param[0]])
             }
 
-        // vibrate with a pattern
-        } else if ((typeof param === 'object') && param.length > 1) {
-            var repeat = -1; // no repeat
-            exec(null, null, 'Vibration', 'vibrateWithPattern', [param, repeat]);
+            // vibrate with a pattern
+        } else if (typeof param === 'object' && param.length > 1) {
+            var repeat = -1 // no repeat
+            exec(null, null, 'Vibration', 'vibrateWithPattern', [param, repeat])
 
-        // cancel vibration (param = 0 or [])
-        } else { exec(null, null, 'Vibration', 'cancelVibration', []); }
+            // cancel vibration (param = 0 or [])
+        } else {
+            exec(null, null, 'Vibration', 'cancelVibration', [])
+        }
 
-        return true;
-    }
-};
+        return true
+    },
+}

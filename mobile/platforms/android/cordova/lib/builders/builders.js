@@ -17,7 +17,7 @@
     under the License.
 */
 
-const CordovaError = require('cordova-common').CordovaError;
+const CordovaError = require('cordova-common').CordovaError
 
 /**
  * Helper method that instantiates and returns a builder for specified build type.
@@ -26,9 +26,11 @@ const CordovaError = require('cordova-common').CordovaError;
  */
 module.exports.getBuilder = function (projectPath) {
     try {
-        const Builder = require('./ProjectBuilder');
-        return new Builder(projectPath);
+        const Builder = require('./ProjectBuilder')
+        return new Builder(projectPath)
     } catch (err) {
-        throw new CordovaError('Failed to instantiate ProjectBuilder builder: ' + err);
+        throw new CordovaError(
+            'Failed to instantiate ProjectBuilder builder: ' + err
+        )
     }
-};
+}

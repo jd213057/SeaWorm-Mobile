@@ -1,175 +1,617 @@
 <div *ngIf="displayGameCountdown()" class="countdown">
-  {{getCount()}}
+    {{ getCount() }}
 </div>
 
-  <div *ngIf="displayGamePanel()" class="game-panel" [ngClass]="endPanelClass()">
-  <div class="panel-structure">
-  <div class="top-part">
-  <div class="panel-title"><span>Sea Worm</span></div><br>
-  <div  class="score-title" [ngClass]="getEndGameClass()"><span>{{getScore()}}</span></div>
+<div *ngIf="displayGamePanel()" class="game-panel" [ngClass]="endPanelClass()">
+    <div class="panel-structure">
+        <div class="top-part">
+            <div class="panel-title"><span>Sea Worm</span></div>
+            <br />
+            <div class="score-title" [ngClass]="getEndGameClass()">
+                <span>{{ getScore() }}</span>
+            </div>
+        </div>
+        <div class="inside-panel">
+            <div class="buttons-left">
+                <button
+                    id="arrowLeft"
+                    class="controls left"
+                    (touchstart)="touchLeft()"
+                >
+                    <img
+                        class="img-controls"
+                        src="./assets/images/icons8-flèche-pointant-vers-la-gauche-100.png"
+                    />
+                </button>
+                <button
+                    id="arrowRight"
+                    class="controls right"
+                    (touchstart)="touchRight()"
+                >
+                    <img
+                        class="img-controls"
+                        src="./assets/images/icons8-flèche-100.png"
+                    />
+                </button>
+            </div>
+            <div *ngIf="displayGamePanel()" class="grid">
+                <div class="line">
+                    <div
+                        id="0-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-0"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-1"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-2"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-3"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-4"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-5"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-6"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-7"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-8"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+                <div class="line">
+                    <div
+                        id="0-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="1-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="2-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="3-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="4-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="5-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="6-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="7-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="8-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                    <div
+                        id="9-9"
+                        class="blank"
+                        [ngClass]="getCaseClass()"
+                    ></div>
+                </div>
+            </div>
+            <div class="buttons-right">
+                <button
+                    id="arrowUp"
+                    class="controls up"
+                    (touchstart)="touchUp()"
+                >
+                    <img
+                        class="img-controls"
+                        src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-haut-100.png"
+                    />
+                </button>
+                <button
+                    id="arrowDown"
+                    class="controls down"
+                    (touchstart)="touchDown()"
+                >
+                    <img
+                        class="img-controls"
+                        src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-bas-100.png"
+                    />
+                </button>
+            </div>
+        </div>
+        <div class="bottom-part">
+            <button class="button-exit" *ngIf="onGame" (click)="exitGame()">
+                <span class="exit-button-title">Sortir</span>
+            </button>
+        </div>
+    </div>
 </div>
-<div class="inside-panel">
-  <div class="buttons-left">
-<button id="arrowLeft" class="controls left" (touchstart)="touchLeft()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-pointant-vers-la-gauche-100.png">
-</button>
-<button id="arrowRight" class="controls right" (touchstart)="touchRight()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-100.png">
-</button>
-  </div>
-<div *ngIf="displayGamePanel()" class="grid">
-  <div class="line">
-    <div id="0-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-0" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-0" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-1" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-1" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-2" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-2" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-3" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-3" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-4" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-4" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-5" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-5" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-6" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-6" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-7" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-7" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-8" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-8" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-  <div class="line">
-    <div id="0-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="1-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="2-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="3-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="4-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="5-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="6-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="7-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="8-9" class="blank" [ngClass]="getCaseClass()"></div>
-    <div id="9-9" class="blank" [ngClass]="getCaseClass()"></div>
-  </div>
-</div>
-<div class="buttons-right">
-  <button id="arrowUp" class="controls up" (touchstart)="touchUp()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-haut-100.png">
-</button>
-<button id="arrowDown" class="controls down" (touchstart)="touchDown()">
-  <img class="img-controls" src="./assets/images/icons8-flèche-épaisse-pointant-vers-le-bas-100.png">
-</button>
-</div>
-</div>
-<div class="bottom-part">
-  <button class="button-exit" *ngIf="onGame" (click)="exitGame()">
-    <span class = "exit-button-title">Sortir</span>
-  </button>
-</div>
-</div>
-</div>
-
 
 <div *ngIf="displayEndGamePanel()" class="end-panel">
-  <video class="video-endgame" muted loop autoplay (mouseover)="$event.stopPropagation()">
-    <source src="./assets/videos/looseGif.mp4"
-            type="video/mp4">
-  </video>
-<div class="exit-msg"><span>Perdu...</span></div>
+    <video
+        class="video-endgame"
+        muted
+        loop
+        autoplay
+        (mouseover)="$event.stopPropagation()"
+    >
+        <source src="./assets/videos/looseGif.mp4" type="video/mp4" />
+    </video>
+    <div class="exit-msg"><span>Perdu...</span></div>
 </div>
 
 <div *ngIf="displayBestScorePanel()" class="bestscore-panel">
-  <div class="bestscore-title"><span>Meilleur score avec {{score}} points !</span></div>
-  <video class="video-bestscore" muted loop autoplay (mouseover)="$event.stopPropagation()">
-    <source src="./assets/videos/bestScoreGif.mp4"
-            type="video/mp4">
-  </video>
-<div class="bestscore-msg"><span>Pas mal du tout !</span></div>
+    <div class="bestscore-title">
+        <span>Meilleur score avec {{ score }} points !</span>
+    </div>
+    <video
+        class="video-bestscore"
+        muted
+        loop
+        autoplay
+        (mouseover)="$event.stopPropagation()"
+    >
+        <source src="./assets/videos/bestScoreGif.mp4" type="video/mp4" />
+    </video>
+    <div class="bestscore-msg"><span>Pas mal du tout !</span></div>
 </div>

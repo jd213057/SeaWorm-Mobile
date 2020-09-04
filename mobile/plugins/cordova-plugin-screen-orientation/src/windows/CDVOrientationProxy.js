@@ -17,13 +17,13 @@
  * specific language governing permissions and limitations
  * under the License.
  *
-*/
+ */
 
-var DisplayInfo = Windows.Graphics.Display.DisplayInformation;
-var Orientations = Windows.Graphics.Display.DisplayOrientations;
+var DisplayInfo = Windows.Graphics.Display.DisplayInformation
+var Orientations = Windows.Graphics.Display.DisplayOrientations
 
 if (!window.Promise) {
-    window.Promise = WinJS.Promise;
+    window.Promise = WinJS.Promise
 }
 
 module.exports = {
@@ -31,32 +31,34 @@ module.exports = {
         //console.log("screenOrientation proxy called with " + args);
 
         try {
-            var prefOrients = args[0];
-            var winPrefs = 0;
+            var prefOrients = args[0]
+            var winPrefs = 0
 
-            if (prefOrients & 1) { // UIInterfaceOrientationPortrait
-                winPrefs = winPrefs |  Orientations.portrait;
+            if (prefOrients & 1) {
+                // UIInterfaceOrientationPortrait
+                winPrefs = winPrefs | Orientations.portrait
             }
-            if (prefOrients & 2) { // UIInterfaceOrientationPortraitUpsideDown
-                winPrefs = winPrefs | Orientations.portraitFlipped;
+            if (prefOrients & 2) {
+                // UIInterfaceOrientationPortraitUpsideDown
+                winPrefs = winPrefs | Orientations.portraitFlipped
             }
-            if(prefOrients & 4) { // UIInterfaceOrientationLandscapeLeft
-                winPrefs = winPrefs | Orientations.landscape;
+            if (prefOrients & 4) {
+                // UIInterfaceOrientationLandscapeLeft
+                winPrefs = winPrefs | Orientations.landscape
             }
-            if (prefOrients & 8) { // UIInterfaceOrientationLandscapeRight
-                winPrefs = winPrefs | Orientations.landscapeFlipped;
+            if (prefOrients & 8) {
+                // UIInterfaceOrientationLandscapeRight
+                winPrefs = winPrefs | Orientations.landscapeFlipped
             }
             setTimeout(function () {
-                DisplayInfo.autoRotationPreferences = winPrefs;
-                win();
-            }, 0);
+                DisplayInfo.autoRotationPreferences = winPrefs
+                win()
+            }, 0)
+        } catch (err) {
+            console.log('error :: ' + err)
+            fail()
         }
-        catch (err) {
-            console.log("error :: " + err);
-            fail();
-        }
+    },
+}
 
-    }
-};
-
-require("cordova/exec/proxy").add("CDVOrientation", module.exports);
+require('cordova/exec/proxy').add('CDVOrientation', module.exports)

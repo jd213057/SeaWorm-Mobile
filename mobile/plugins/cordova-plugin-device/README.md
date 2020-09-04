@@ -2,6 +2,7 @@
 title: Device
 description: Get device information.
 ---
+
 <!--
 # license: Licensed to the Apache Software Foundation (ASF) under one
 #         or more contributor license agreements.  See the NOTICE file
@@ -21,9 +22,9 @@ description: Get device information.
 #         under the License.
 -->
 
-|AppVeyor|Travis CI|
-|:-:|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-device?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-device)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-device.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-device)|
+|                                                                                             AppVeyor                                                                                             |                                                                  Travis CI                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-device?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-device) | [![Build Status](https://travis-ci.org/apache/cordova-plugin-device.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-device) |
 
 # cordova-plugin-device
 
@@ -31,9 +32,9 @@ This plugin defines a global `device` object, which describes the device's hardw
 Although the object is in the global scope, it is not available until after the `deviceready` event.
 
 ```js
-document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener('deviceready', onDeviceReady, false)
 function onDeviceReady() {
-    console.log(device.cordova);
+    console.log(device.cordova)
 }
 ```
 
@@ -43,14 +44,14 @@ function onDeviceReady() {
 
 ## Properties
 
-- device.cordova
-- device.model
-- device.platform
-- device.uuid
-- device.version
-- device.manufacturer
-- device.isVirtual
-- device.serial
+-   device.cordova
+-   device.model
+-   device.platform
+-   device.uuid
+-   device.version
+-   device.manufacturer
+-   device.isVirtual
+-   device.serial
 
 ## device.cordova
 
@@ -58,11 +59,11 @@ Get the version of Cordova running on the device.
 
 ### Supported Platforms
 
-- Android
-- Browser
-- iOS
-- Windows
-- OSX
+-   Android
+-   Browser
+-   iOS
+-   Windows
+-   OSX
 
 ## device.model
 
@@ -72,11 +73,11 @@ different across versions of the same product.
 
 ### Supported Platforms
 
-- Android
-- Browser
-- iOS
-- Windows
-- OSX
+-   Android
+-   Browser
+-   iOS
+-   Windows
+-   OSX
 
 ### Quick Example
 
@@ -89,27 +90,28 @@ different across versions of the same product.
 // iOS:     for the iPad Mini, returns iPad2,5; iPhone 5 is iPhone 5,1. See http://theiphonewiki.com/wiki/index.php?title=Models
 // OSX:                        returns "x86_64"
 //
-var model = device.model;
+var model = device.model
 ```
 
 ### Android Quirks
 
-- Gets the [product name](http://developer.android.com/reference/android/os/Build.html#PRODUCT) instead of the [model name](http://developer.android.com/reference/android/os/Build.html#MODEL), which is often the production code name. For example, the Nexus One returns `Passion`, and Motorola Droid returns `voles`.
+-   Gets the [product name](http://developer.android.com/reference/android/os/Build.html#PRODUCT) instead of the [model name](http://developer.android.com/reference/android/os/Build.html#MODEL), which is often the production code name. For example, the Nexus One returns `Passion`, and Motorola Droid returns `voles`.
 
 ## device.platform
 
 Get the device's operating system name.
 
 ```js
-var string = device.platform;
+var string = device.platform
 ```
+
 ### Supported Platforms
 
-- Android
-- Browser
-- iOS
-- Windows
-- OSX
+-   Android
+-   Browser
+-   iOS
+-   Windows
+-   OSX
 
 ### Quick Example
 
@@ -122,7 +124,7 @@ var string = device.platform;
 //   - "WinCE"
 //   - "Tizen"
 //   - "Mac OS X"
-var devicePlatform = device.platform;
+var devicePlatform = device.platform
 ```
 
 ## device.uuid
@@ -130,7 +132,7 @@ var devicePlatform = device.platform;
 Get the device's Universally Unique Identifier ([UUID](http://en.wikipedia.org/wiki/Universally_Unique_Identifier)).
 
 ```js
-var string = device.uuid;
+var string = device.uuid
 ```
 
 ### Description
@@ -139,10 +141,10 @@ The details of how a UUID is generated are determined by the device manufacturer
 
 ### Supported Platforms
 
-- Android
-- iOS
-- Windows
-- OSX
+-   Android
+-   iOS
+-   Windows
+-   OSX
 
 ### Quick Example
 
@@ -159,7 +161,7 @@ The details of how a UUID is generated are determined by the device manufacturer
 // if the user is not defined, a guid is generated and will persist until the app is uninstalled
 // Tizen: returns the device IMEI (International Mobile Equipment Identity or IMEI is a number
 // unique to every GSM and UMTS mobile phone.
-var deviceID = device.uuid;
+var deviceID = device.uuid
 ```
 
 ### iOS Quirk
@@ -180,11 +182,11 @@ Get the operating system version.
 
 ### Supported Platforms
 
-- Android 2.1+
-- Browser
-- iOS
-- Windows
-- OSX
+-   Android 2.1+
+-   Browser
+-   iOS
+-   Windows
+-   OSX
 
 ### Quick Example
 
@@ -204,7 +206,7 @@ Get the operating system version.
 // Tizen: returns "TIZEN_20120425_2"
 // OSX:        El Capitan would return "10.11.2"
 //
-var deviceVersion = device.version;
+var deviceVersion = device.version
 ```
 
 ## device.manufacturer
@@ -215,9 +217,9 @@ Get the device's manufacturer.
 
 ### Supported Platforms
 
-- Android
-- iOS
-- Windows
+-   Android
+-   iOS
+-   Windows
 
 ### Quick Example
 
@@ -226,7 +228,7 @@ Get the device's manufacturer.
 // BlackBerry: returns "BlackBerry"
 // iPhone:     returns "Apple"
 //
-var deviceManufacturer = device.manufacturer;
+var deviceManufacturer = device.manufacturer
 ```
 
 ## device.isVirtual
@@ -234,16 +236,16 @@ var deviceManufacturer = device.manufacturer;
 whether the device is running on a simulator.
 
 ```js
-var isSim = device.isVirtual;
+var isSim = device.isVirtual
 ```
 
 ### Supported Platforms
 
-- Android 2.1+
-- Browser
-- iOS
-- Windows
-- OSX
+-   Android 2.1+
+-   Browser
+-   iOS
+-   Windows
+-   OSX
 
 ### OSX and Browser Quirk
 
@@ -254,11 +256,10 @@ The `isVirtual` property on OS X and Browser always returns false.
 Get the device hardware serial number ([SERIAL](http://developer.android.com/reference/android/os/Build.html#SERIAL)).
 
 ```js
-var string = device.serial;
+var string = device.serial
 ```
 
 ### Supported Platforms
 
-- Android
-- OSX
-
+-   Android
+-   OSX

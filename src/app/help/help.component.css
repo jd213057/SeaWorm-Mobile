@@ -1,171 +1,172 @@
 @font-face {
-  src: url("src\assets\fonts\TreasureMapDeadhand-yLA3.ttf");
-  font-family: "Pirate Menu";
- }
- @font-face {
-   src: url("src\assets\fonts\Blackpearl-vPxA.ttf");
-   font-family: "Pirate Game";
- }
+    src: url('src\assets\fonts\TreasureMapDeadhand-yLA3.ttf');
+    font-family: 'Pirate Menu';
+}
+@font-face {
+    src: url('src\assets\fonts\Blackpearl-vPxA.ttf');
+    font-family: 'Pirate Game';
+}
 
- .cursor-in {
-  cursor: url("src\assets\cursors\Hand-Right.cur") 0 0, auto;
-  color: yellowgreen !important;
-  background-color: red !important;
+.cursor-in {
+    cursor: url('src\assets\cursors\Hand-Right.cur') 0 0, auto;
+    color: yellowgreen !important;
+    background-color: red !important;
 }
 
 .no-focus {
-  background-color: none;
+    background-color: none;
 }
 
-span, label {
-  opacity: 100% !important;
+span,
+label {
+    opacity: 100% !important;
 }
 
 .game-panel {
-  text-align: center;
-  width: 1050px;
-  height: 450px;
-  background-color:black;
-  border-radius: 30px;
-  border-color: black;
-  border: solid;
-  border-width: 7px;
-  padding-top: 10px;
-  cursor: url("src\assets\cursors\starfishcur.cur") 0 0, auto;
+    text-align: center;
+    width: 1050px;
+    height: 450px;
+    background-color: black;
+    border-radius: 30px;
+    border-color: black;
+    border: solid;
+    border-width: 7px;
+    padding-top: 10px;
+    cursor: url('src\assets\cursors\starfishcur.cur') 0 0, auto;
 }
 
 .panel-title {
-  font-size: 35px;
-  font-family: "Pirate Menu";
-  font-style: italic;
-  color: yellowgreen;
+    font-size: 35px;
+    font-family: 'Pirate Menu';
+    font-style: italic;
+    color: yellowgreen;
 }
 
 .label-panel {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .button-exitHelp {
-display: inline-flex;
- color: red;
- width: 18%;
- height: 15%;
- border-radius: 0.75em;
- border-color: black;
- background-color: yellowgreen;
- font-style: italic;
- font-size: 1.75em;
- font-family: "Pirate Menu";
- padding-left: 3.5%;
- margin-top: 1.25%;
+    display: inline-flex;
+    color: red;
+    width: 18%;
+    height: 15%;
+    border-radius: 0.75em;
+    border-color: black;
+    background-color: yellowgreen;
+    font-style: italic;
+    font-size: 1.75em;
+    font-family: 'Pirate Menu';
+    padding-left: 3.5%;
+    margin-top: 1.25%;
 }
 
 .button-next {
-  padding-left: 50px !important;
+    padding-left: 50px !important;
 }
 
 .panel-text {
-  display: inline-block;
-  text-align: left;
-  width: 1000px;
-  height: 280px;
-  padding: 22px 10px 0px 10px;
-  color: red;
-  font-family: "Pirate Game";
-  font-size: 30px;
-  background-color: black;
-  border-radius: 30px;
-  border-color: yellowgreen;
-  border-width: 4px;
-  border: solid;
+    display: inline-block;
+    text-align: left;
+    width: 1000px;
+    height: 280px;
+    padding: 22px 10px 0px 10px;
+    color: red;
+    font-family: 'Pirate Game';
+    font-size: 30px;
+    background-color: black;
+    border-radius: 30px;
+    border-color: yellowgreen;
+    border-width: 4px;
+    border: solid;
 }
 
 .span-button {
-  margin-top: 15px;
-  font-size: 30px;
+    margin-top: 15px;
+    font-size: 30px;
 }
 
 .food-line {
-  display: inline-flex;
-  padding-left: 20px;
+    display: inline-flex;
+    padding-left: 20px;
 }
 
 .food-yellow {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: yellowgreen;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: yellowgreen;
+    margin-right: 10px;
 }
 
 .food-red {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: red;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: red;
+    margin-right: 10px;
 }
 
 .food-purple {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: rebeccapurple;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: rebeccapurple;
+    margin-right: 10px;
 }
 
 .food-blue {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: darkblue;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: darkblue;
+    margin-right: 10px;
 }
 
 .food-orange {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: orange;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: orange;
+    margin-right: 10px;
 }
 
 .food-green {
-  height: 30px;
-  width: 30px;
-  border: 1px solid red;
-  background-color: green;
-  margin-right: 10px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid red;
+    background-color: green;
+    margin-right: 10px;
 }
 
 .second-line {
-  margin-left: 40px;
+    margin-left: 40px;
 }
 
 .help-video {
-  margin-left: 16px;
-  margin-top: -80px;
+    margin-left: 16px;
+    margin-top: -80px;
 }
 
 video {
-  border: 3px solid rebeccapurple;
-  border-radius: 15px;
-  width: 260px;
-  height: 262px;
+    border: 3px solid rebeccapurple;
+    border-radius: 15px;
+    width: 260px;
+    height: 262px;
 }
 
 .last-button {
-  width: 45% !important;
-  margin-top: 0.65em !important;
+    width: 45% !important;
+    margin-top: 0.65em !important;
 }
 
 .last-panel {
-width: 390px !important;
-margin-left: 345px;
-border: 3px solid plum !important;
+    width: 390px !important;
+    margin-left: 345px;
+    border: 3px solid plum !important;
 }
 
 .last-panel-text {
-width: 300px !important;
-background-color: plum !important;
+    width: 300px !important;
+    background-color: plum !important;
 }

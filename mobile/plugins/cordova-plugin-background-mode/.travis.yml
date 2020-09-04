@@ -23,44 +23,44 @@ language: objective-c
 osx_image: xcode8.2
 
 branches:
-  only:
-  - master
-  - /^feature\//
-  - /^bug\//
+    only:
+        - master
+        - /^feature\//
+        - /^bug\//
 
 node_js:
-- 6
+    - 6
 
 notifications:
-  email: false
+    email: false
 
 matrix:
-  fast_finish: true
+    fast_finish: true
 
 before_install:
-- xcrun simctl delete 79C525D3-2383-4201-AC3A-81810F9F4E03
+    - xcrun simctl delete 79C525D3-2383-4201-AC3A-81810F9F4E03
 
 install:
-- npm install
-- npm install -g cordova
-- brew install gradle
-- brew install android-sdk
-- ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk -a -u -t "tools,platform-tools,build-tools-25.0.2,android-25,extra-android-m2repository"
+    - npm install
+    - npm install -g cordova
+    - brew install gradle
+    - brew install android-sdk
+    - ( sleep 5 && while [ 1 ]; do sleep 1; echo y; done ) | android update sdk -a -u -t "tools,platform-tools,build-tools-25.0.2,android-25,extra-android-m2repository"
 
 before_script:
-- cordova create myApp org.apache.cordova.myApp myApp
-- cd myApp
-- sed -i -r 's:\(<content.*\):\1<preference name="android-targetSdkVersion" value="16" />:' config.xml
-- cordova platform add android@latest browser@latest ios@latest
-- cordova plugin add cordova-plugin-background-mode --searchpath $TRAVIS_BUILD_DIR
-- cordova platform ls
-- cordova plugin ls
+    - cordova create myApp org.apache.cordova.myApp myApp
+    - cd myApp
+    - sed -i -r 's:\(<content.*\):\1<preference name="android-targetSdkVersion" value="16" />:' config.xml
+    - cordova platform add android@latest browser@latest ios@latest
+    - cordova plugin add cordova-plugin-background-mode --searchpath $TRAVIS_BUILD_DIR
+    - cordova platform ls
+    - cordova plugin ls
 
 script:
-- cordova build android
-- cordova build browser
-- cordova build ios
-- cordova plugin add cordova-plugin-crosswalk-webview
-- cordova plugin add cordova-plugin-wkwebview-engine
-- cordova build android
-- cordova build ios
+    - cordova build android
+    - cordova build browser
+    - cordova build ios
+    - cordova plugin add cordova-plugin-crosswalk-webview
+    - cordova plugin add cordova-plugin-wkwebview-engine
+    - cordova build android
+    - cordova build ios

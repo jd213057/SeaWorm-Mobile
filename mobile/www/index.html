@@ -2,41 +2,69 @@
 <!-- Requires 718*429 res in Responsive Mode on Chrome and Mozilla to be displayed -->
 <html id="app">
     <head>
-        <base href="./">
-        <meta http-equiv="Content-Security-Policy" script-src='unsafe-inline';>
-       <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta charset="utf-8">
+        <base href="./" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            script-src="unsafe-inline"
+            ;
+        />
+        <!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta
+            name="viewport"
+            content="initial-scale=1, width=device-width, viewport-fit=cover"
+        />
+        <meta charset="utf-8" />
         <style>
-          html {
-  width: 100%;
-  height: 712px;
-  overflow-y: hidden !important;
-  overflow-x: hidden !important;
-  scrollbar-width: none;
-  overflow: hidden !important;
-    }
+            html {
+                width: 100%;
+                height: 712px;
+                overflow-y: hidden !important;
+                overflow-x: hidden !important;
+                scrollbar-width: none;
+                overflow: hidden !important;
+            }
 
-    body {
-  margin: 0px 0px 0px 0px !important;
-}
+            body {
+                margin: 0px 0px 0px 0px !important;
+            }
         </style>
         <title>SeaWorm</title>
         <script>
-            const app = document.getElementById('app');
-  app.addEventListener('deviceready', () => {
-    app.addEventListener('pause', () => {
-       this.gameService.setGameState(GameState.Pause);
-    }, false);
-    app.addEventListener('resume', () => {
-      this.gameService.setGameState(GameState.Play);
-   }, false);
-  }, false);
+            const app = document.getElementById('app')
+            app.addEventListener(
+                'deviceready',
+                () => {
+                    app.addEventListener(
+                        'pause',
+                        () => {
+                            this.gameService.setGameState(GameState.Pause)
+                        },
+                        false
+                    )
+                    app.addEventListener(
+                        'resume',
+                        () => {
+                            this.gameService.setGameState(GameState.Play)
+                        },
+                        false
+                    )
+                },
+                false
+            )
         </script>
-    <link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css"></head>
+        <link rel="stylesheet" href="styles.3ff695c00d717f2d2a11.css" />
+    </head>
     <body width="100%" heigth="712" overflow="hidden">
-      <app-root></app-root>
-    <script src="runtime.458556a34b891ea32398.js" defer></script><script src="polyfills-es5.3ea3d19ea1f10e055780.js" nomodule defer></script><script src="polyfills.dc9a89d9e6f14616fa70.js" defer></script><script src="main.7af1a64f71893928838b.js" defer></script></body>
+        <app-root></app-root>
+        <script src="runtime.458556a34b891ea32398.js" defer></script>
+        <script
+            src="polyfills-es5.3ea3d19ea1f10e055780.js"
+            nomodule
+            defer
+        ></script>
+        <script src="polyfills.dc9a89d9e6f14616fa70.js" defer></script>
+        <script src="main.1e9cf94a0cf76a38c476.js" defer></script>
+    </body>
 </html>

@@ -19,9 +19,9 @@
     under the License.
 */
 
-'use strict';
+'use strict'
 
-var events = require('cordova-common').events;
+var events = require('cordova-common').events
 
 /*
  * Retry a promise-returning function a number of times, propagating its
@@ -34,31 +34,37 @@ var events = require('cordova-common').events;
  * @returns {Promise}
  */
 module.exports.retryPromise = function (attemptsLeft, promiseFunction) {
-
     // NOTE:
     //      get all trailing arguments, by skipping the first two (attemptsLeft and
     //      promiseFunction) because they shouldn't get passed to promiseFunction
-    var promiseFunctionArguments = Array.prototype.slice.call(arguments, 2);
+    var promiseFunctionArguments = Array.prototype.slice.call(arguments, 2)
 
     return promiseFunction.apply(undefined, promiseFunctionArguments).then(
         // on success pass results through
-        function onFulfilled (value) {
-            return value;
+        function onFulfilled(value) {
+            return value
         },
 
         // on rejection either retry, or throw the error
-        function onRejected (error) {
-            attemptsLeft -= 1;
+        function onRejected(error) {
+            attemptsLeft -= 1
 
             if (attemptsLeft < 1) {
-                throw error;
+                throw error
             }
 
-            events.emit('verbose', 'A retried call failed. Retrying ' + attemptsLeft + ' more time(s).');
+            events.emit(
+                'verbose',
+                'A retried call failed. Retrying ' +
+                    attemptsLeft +
+                    ' more time(s).'
+            )
 
             // retry call self again with the same arguments, except attemptsLeft is now lower
-            var fullArguments = [attemptsLeft, promiseFunction].concat(promiseFunctionArguments);
-            return module.exports.retryPromise.apply(undefined, fullArguments);
+            var fullArguments = [attemptsLeft, promiseFunction].concat(
+                promiseFunctionArguments
+            )
+            return module.exports.retryPromise.apply(undefined, fullArguments)
         }
-    );
-};
+    )
+}

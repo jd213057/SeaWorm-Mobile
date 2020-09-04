@@ -25,7 +25,7 @@ $ cordova plugins add {yourPlugin}
 > Installing "es6-promise-plugin" for {platform}
 ```
 
-This is all. ```window.Promise``` is available for use in your plugin.
+This is all. `window.Promise` is available for use in your plugin.
 
 # Credits
 

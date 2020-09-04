@@ -1,29 +1,27 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { GameService } from '../game.service';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'
+import { GameService } from '../game.service'
 
 @Component({
-  selector: 'app-intro',
-  templateUrl: './intro.component.html',
-  styleUrls: ['./intro.component.css']
+    selector: 'app-intro',
+    templateUrl: './intro.component.html',
+    styleUrls: ['./intro.component.css'],
 })
 export class IntroComponent implements OnInit {
-  musicIntro = new Audio('.\\assets\\sounds\\gameIntro.mp3');
-  @Output() closeIntro = new EventEmitter();
+    musicIntro = new Audio('.\\assets\\sounds\\gameIntro.mp3')
+    @Output() closeIntro = new EventEmitter()
 
-    constructor(protected gameService: GameService) { }
+    constructor(protected gameService: GameService) {}
 
     ngOnInit() {
-      this.playIntroMusic();
+        this.playIntroMusic()
     }
 
     playIntroMusic(): void {
-      if (this.gameService.getAudio()) {
-        this.musicIntro.play();
-      }
-      setTimeout(() => {
-    this.closeIntro.emit();
-  }, 8000);
+        if (this.gameService.getAudio()) {
+            this.musicIntro.play()
+        }
+        setTimeout(() => {
+            this.closeIntro.emit()
+        }, 8000)
     }
-
 }

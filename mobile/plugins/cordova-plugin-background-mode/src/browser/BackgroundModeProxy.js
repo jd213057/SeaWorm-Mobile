@@ -30,8 +30,8 @@
  * @return [ Void ]
  */
 exports.enable = function (success, error) {
-    success();
-};
+    success()
+}
 
 /**
  * Deactivates the background mode. When deactivated the application
@@ -43,7 +43,7 @@ exports.enable = function (success, error) {
  * @return [ Void ]
  */
 exports.disable = function (success, error) {
-    success();
-};
+    success()
+}
 
-cordova.commandProxy.add('BackgroundMode', exports);
+cordova.commandProxy.add('BackgroundMode', exports)

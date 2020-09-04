@@ -17,19 +17,19 @@
  * specific language governing permissions and limitations
  * under the License.
  *
-*/
+ */
 
-var splash = require('cordova/splashscreen');
+var splash = require('cordova/splashscreen')
 
 var SplashScreen = {
     show: function () {
-        splash.show();
+        splash.show()
     },
     hide: function () {
-        splash.hide();
-    }
-};
+        splash.hide()
+    },
+}
 
-module.exports = SplashScreen;
+module.exports = SplashScreen
 
-require('cordova/exec/proxy').add('SplashScreen', SplashScreen);
+require('cordova/exec/proxy').add('SplashScreen', SplashScreen)

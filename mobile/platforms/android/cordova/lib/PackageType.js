@@ -19,7 +19,7 @@
 
 const PackageType = {
     APK: 'apk',
-    BUNDLE: 'bundle'
-};
+    BUNDLE: 'bundle',
+}
 
-module.exports = PackageType;
+module.exports = PackageType
